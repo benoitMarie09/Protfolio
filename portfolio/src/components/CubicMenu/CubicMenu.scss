@@ -1,0 +1,84 @@
+@import "../../styles/variables";
+@import "../../styles/globals";
+@import "../../styles/animations";
+@import "../../styles/mixins";
+@import "../../styles/functions";
+
+$size: 150px;
+
+.nav {
+  position: fixed;
+  width: 100%;
+  padding: 10px;
+  background: $navbar-bg-color;
+  z-index: 200;
+}
+.nav__container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  perspective: 200vh;
+  perspective-origin: 100% 0%;
+  .scene {
+    position: relative;
+    transform-style: preserve-3d;
+    .nav__cube {
+      transform: translate(30px);
+      pointer-events: auto;
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $menu-bg-color;
+  z-index: 250;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s;
+  transition-delay: 0.6s;
+
+  &__links {
+    width: 500px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: scale-out 0.5s both ease;
+    & > li {
+      text-align: center;
+
+      a {
+        display: block;
+        font-family: "Frijole", cursive;
+        line-height: 25px;
+        padding: 1rem;
+        color: $menu-color;
+        font-size: $font-size;
+
+        &:hover {
+          padding-left: 2rem;
+          letter-spacing: 5px;
+        }
+      }
+      & > .active {
+        color: lighten($menu-color, 40%);
+      }
+    }
+  }
+  &--show {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+    & > ul {
+      animation: scale-in 0.5s both ease 0.5s;
+    }
+  }
+}

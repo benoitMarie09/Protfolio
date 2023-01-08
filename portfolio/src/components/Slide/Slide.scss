@@ -1,0 +1,17 @@
+@import "../../styles/animations";
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: 1000ms cubic-bezier(0.55, 0.085, 0, 0.99);
+
+  &--up {
+    transform: translateY(-100%);
+    transition: 1000ms cubic-bezier(0.55, 0.085, 0, 0.99);
+  }
+}

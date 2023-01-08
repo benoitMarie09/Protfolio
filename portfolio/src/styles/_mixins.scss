@@ -1,0 +1,87 @@
+@import "./functions";
+
+@mixin face-up {
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+@mixin face-setup($angle, $size: $size, $color: $color) {
+  transform: rotateY($angle) translateZ($size);
+  background-color: $color;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin cube-setup($size) {
+  position: absolute;
+  width: calc(2 * $size);
+  height: calc(2 * $size);
+  top: calc(-1 * $size);
+  left: calc(-1 * $size);
+  transform-style: preserve-3d;
+  pointer-events: none;
+
+  .cube__front {
+    @include face-setup(0deg, $size);
+  }
+  .cube__right {
+    @include face-setup(90deg, $size);
+  }
+  .cube__back {
+    @include face-setup(180deg, $size);
+  }
+  .cube__left {
+    @include face-setup(270deg, $size);
+  }
+
+  .cube__top {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-50%) rotateX(90deg);
+    background-color: $color;
+  }
+  .cube__bottom {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateY(50%) rotateX(270deg);
+    background-color: $color;
+  }
+}
+
+@mixin cube-open($size) {
+  .cube__front {
+    transition: all 1s;
+    @include face-setup(0deg, $size);
+  }
+  .cube__right {
+    transition: all 1s;
+    @include face-setup(90deg, $size);
+  }
+  .cube__back {
+    transition: all 1s;
+    @include face-setup(180deg, $size);
+  }
+  .cube__left {
+    transition: all 1s;
+    @include face-setup(270deg, $size);
+  }
+
+  .cube__top {
+    transition: all 1s;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-70%) rotateX(95deg);
+    background-color: $color;
+  }
+  .cube__bottom {
+    transition: all 1s;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateY(70%) rotateX(275deg);
+    background-color: $color;
+  }
+}

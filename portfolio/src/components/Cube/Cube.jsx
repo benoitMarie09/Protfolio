@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import "./Cube.scss";
 
 export default function Cube(props) {
-
   const [onMotion, setOnMotion] = useState(false);
   const [rotation, setRotation] = useState({
     originX: 0,
@@ -16,7 +15,6 @@ export default function Cube(props) {
     mouseX: 0,
     mouseY: 0,
   });
-
 
   const handleMouseDown = (event) => {
     setOnMotion(true);
@@ -93,7 +91,7 @@ export default function Cube(props) {
   };
 
   useEffect(() => {
-    var scene = document.getElementById("scene");
+    var scene = document.getElementById(`scene${props.id}`);
     if (onMotion) {
       scene.style.transition = "all 0s";
     } else {
@@ -101,26 +99,38 @@ export default function Cube(props) {
     }
 
     scene.style.transform = `rotateX(${rotation.X}deg) rotateY(${rotation.Y}deg) rotateZ(${rotation.Z}deg)`;
-  }, [onMotion, rotation.X, rotation.Y, rotation.Z]);
+  }, [onMotion, rotation.X, rotation.Y, rotation.Z, props.id]);
 
   return (
     <div>
-    <div
-      className="layout"
-      onMouseDown={(e) => handleMouseDown(e)}
-      onMouseMove={(e) => handleMouseMove(e)}
-      onMouseUp={(e) => handleMouseUp(e)}>
-      <div id="scene">
-        <div className="cube">
-          <div className="cube__front"><img className="cube__image" src={props.images[0]} alt="images" /></div>
-          <div className="cube__back"><img className="cube__image" src={props.images[1]} alt="images" /></div>
-          <div className="cube__top"><img className="cube__image" src={props.images[2]} alt="images" /></div>
-          <div className="cube__bottom"><img className="cube__image" src={props.images[3]} alt="images" /></div>
-          <div className="cube__left"><img className="cube__image" src={props.images[4]} alt="images" /></div>
-          <div className="cube__right"><img className="cube__image" src={props.images[5]} alt="images" /></div>
+      <div
+        className="layout"
+        onMouseDown={(e) => handleMouseDown(e)}
+        onMouseMove={(e) => handleMouseMove(e)}
+        onMouseUp={(e) => handleMouseUp(e)}>
+        <div className="scene" id={`scene${props.id}`}>
+          <div className="cube cube-medium cube-green">
+            <div className="cube__front">
+              <img className="cube__image" src={props.images[0]} alt="images" />
+            </div>
+            <div className="cube__back">
+              <img className="cube__image" src={props.images[1]} alt="images" />
+            </div>
+            <div className="cube__top">
+              <img className="cube__image" src={props.images[2]} alt="images" />
+            </div>
+            <div className="cube__bottom">
+              <img className="cube__image" src={props.images[3]} alt="images" />
+            </div>
+            <div className="cube__left">
+              <img className="cube__image" src={props.images[4]} alt="images" />
+            </div>
+            <div className="cube__right">
+              <img className="cube__image" src={props.images[5]} alt="images" />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
