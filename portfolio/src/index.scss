@@ -7,6 +7,7 @@
 body {
   background-color: black;
   height: 100vh;
+  overflow: hidden;
   margin: 0;
 }
 
@@ -15,8 +16,8 @@ body {
 }
 
 .cube {
-  &-medium{
-    @include cube-setup(10vh);
+  &-medium {
+    @include cube-setup(15vh);
   }
   &-small {
     @include cube-setup(1.5vh);

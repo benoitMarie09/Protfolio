@@ -1,0 +1,11 @@
+@import "../../styles/animations";
+
+.cursor {
+  visibility: visible;
+  &--hidden {
+    visibility: hidden;
+  }
+  &--done {
+    animation: blink 1300ms infinite;
+  }
+}

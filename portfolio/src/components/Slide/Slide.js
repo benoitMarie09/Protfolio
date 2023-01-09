@@ -16,10 +16,15 @@ function Slide(props) {
 
   return (
     <div
-      className={`slide ${currentSlide > index ? "slide--up" : ""}`}
+      className={`slide ${
+        currentSlide === index
+          ? ""
+          : currentSlide > index
+          ? "slide--up"
+          : "slide--down"
+      }`}
       style={{ zIndex: z }}
-      onWheel={(e) => wheelSlide(e)}
-    >
+      onWheel={(e) => wheelSlide(e)}>
       {props.children}
     </div>
   );

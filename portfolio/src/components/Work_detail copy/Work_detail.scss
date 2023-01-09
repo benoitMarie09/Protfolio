@@ -1,0 +1,18 @@
+.detail {
+  width: 50vw;
+  padding: 300px 10%;
+  color: rgb(29, 138, 7);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  .info {
+    ul {
+      list-style:inside;
+    }
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
