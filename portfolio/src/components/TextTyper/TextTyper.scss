@@ -1,11 +1,15 @@
+@import "../../styles/variables";
+@import "../../styles/globals";
 @import "../../styles/animations";
+@import "../../styles/mixins";
+@import "../../styles/functions";
 
 .cursor {
-  visibility: visible;
-  &--hidden {
-    visibility: hidden;
-  }
-  &--done {
-    animation: blink 1300ms infinite;
-  }
+    visibility: visible;
+    &--hidden {
+        visibility: hidden;
+    }
+    &--done {
+        animation: blink 1300ms infinite;
+    }
 }

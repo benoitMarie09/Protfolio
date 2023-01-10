@@ -1,18 +1,42 @@
-.detail {
-  width: 50vw;
-  padding: 300px 10%;
-  color: rgb(29, 138, 7);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  .info {
-    ul {
-      list-style:inside;
-    }
+@import "../../styles/variables";
+@import "../../styles/globals";
+@import "../../styles/animations";
+@import "../../styles/mixins";
+@import "../../styles/functions";
 
-    width: 100%;
+.detail {
+    height: 100%;
+    padding:70px 50px;
+    color: $primary-color;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    @include breakpoint(md) {
+        padding: 300px 20px;
+    }
+    &__info {
+      width: min(70%,400px);
+      .col_1{width: 40%;}
+      .col_2{width: 40%;}
+      .col_3{width: 20%;}
   }
+    &__description{
+      width: min(70%,400px);
+    }
+    &__button {
+        background-color: $primary-color;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;  
+    }
+    table,
+    th,
+    td {
+        border: 1px solid $primary-color;
+    }
+    td {
+        padding: 3px;
+    }
 }

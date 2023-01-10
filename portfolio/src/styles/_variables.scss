@@ -1,11 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Frijole&display=swap");
 
 /* Variables */
+
+
 $font-principal: "Frijole", cursive;
 $font-size: 1.5rem;
 $navbar-bg-color: rgba(0, 0, 0, 0);
+
+
+
+
+/* Colors */
+$primary-color: rgb(29, 138, 7);
+$secondary-color: black;
+/* Menu */
+$navbar-color:rgb(43, 43, 43);
 $menu-color: rgb(141, 141, 141);
 $menu-bg-color: rgba(0, 0, 0, 0.945);
-$burger-color: rgb(68, 68, 68);
 
-$color: rgba(0, 0, 0, 0.836);
+/* Cube */
+$cube_face-color: rgba(0, 0, 0, 0.836);
+
+
+
+
+$breakpoints: (
+    sm: (
+        min: 576px,
+        max: 575.98px,
+    ),
+    md: (
+        min: 768px,
+        max: 767.98px
+    ),
+    lg: (
+        min: 992px,
+        max: 991.98px
+    ),
+    xl: (
+        min: 1200px,
+        max: 1199.98px
+    ),
+    xxl: (
+      min: 1400px,
+      max: 1399.98px,
+    )
+);

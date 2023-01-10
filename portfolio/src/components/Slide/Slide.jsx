@@ -4,7 +4,6 @@ function Slide(props) {
   const { currentSlide, updateSlide, index, slideNb } = props;
   const z = slideNb - index;
   function wheelSlide(event) {
-    console.log(currentSlide);
     if (event.deltaY > 0) {
       if (currentSlide < slideNb - 1) {
         updateSlide(index + 1);
@@ -24,7 +23,8 @@ function Slide(props) {
           : "slide--down"
       }`}
       style={{ zIndex: z }}
-      onWheel={(e) => wheelSlide(e)}>
+      onWheel={(e) => wheelSlide(e)}
+    >
       {props.children}
     </div>
   );

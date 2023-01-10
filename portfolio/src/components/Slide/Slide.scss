@@ -1,4 +1,9 @@
+@import "../../styles/variables";
+@import "../../styles/globals";
 @import "../../styles/animations";
+@import "../../styles/mixins";
+@import "../../styles/functions";
+
 
 .slide {
   display: flex;
