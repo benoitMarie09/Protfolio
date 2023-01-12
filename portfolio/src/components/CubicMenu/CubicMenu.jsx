@@ -7,22 +7,22 @@ import "./CubicMenu.scss";
 const CubicMenu = ({ currentSlide, updateSlide }) => {
     const [isMenuOpen, setMenuOpen] = useState(false);
 
-    function burgerClick() {
+    function cubeClick() {
         setMenuOpen(!isMenuOpen);
     }
 
     function menuClick(index) {
-        burgerClick();
+        cubeClick();
         updateSlide(index);
     }
 
     return (
         <>
-            <nav className="nav" role="navigation">
-                <div>
-                    <div className="nav__logo">Logo</div>
-                </div>
-                <div className={`menu ${isMenuOpen ? "menu--show" : ""}`}>
+            <nav
+                className={`nav ${isMenuOpen ? "nav--menu" : ""}`}
+                role="navigation"
+            >
+                <div className={`menu ${isMenuOpen ? "menu--open" : ""}`}>
                     <ul className="menu__links">
                         {headerMenu.getHeaderMenu().map((menuItem) => (
                             <li key={menuItem.key}>
@@ -45,16 +45,21 @@ const CubicMenu = ({ currentSlide, updateSlide }) => {
                         ))}
                     </ul>
                 </div>
-                <div className="nav__container">
-                    <div className="scene">
-                        <div className="cube cube--small cube--green nav__cube">
-                            <div className="cube__front"></div>
-                            <div className="cube__back"></div>
-                            <div className="cube__top"></div>
-                            <div className="cube__bottom"></div>
-                            <div className="cube__left"></div>
-                            <div className="cube__right"></div>
+
+                <div className="scene">
+                    <div
+                        className={`cube--small cube--green nav__cube 
+                         ${isMenuOpen ? "cube--menu" : ""}`}
+                        onClick={cubeClick}
+                    >
+                        <div className="cube__front"></div>
+                        <div className="cube__back">
+                        <img src="images/X.png" alt="" />
                         </div>
+                        <div className="cube__top"></div>
+                        <div className="cube__bottom"></div>
+                        <div className="cube__left"></div>
+                        <div className="cube__right"></div>
                     </div>
                 </div>
             </nav>

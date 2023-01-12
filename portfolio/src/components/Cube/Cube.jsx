@@ -170,7 +170,7 @@ export default function Cube(props) {
         if (onMotion) {
             scene.style.transition = "all 0s";
         } else {
-            scene.style.transition = "all 0.5s";
+            scene.style.transition = "all 0.5s cubic-bezier(0,.71,.27,1.38)";
         }
 
         scene.style.transform = `rotateX(${rotation.X}deg) rotateY(${rotation.Y}deg) rotateZ(${rotation.Z}deg)`;

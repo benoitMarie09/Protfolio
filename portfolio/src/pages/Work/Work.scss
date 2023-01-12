@@ -1,8 +1,6 @@
-@import "../../styles/variables";
-@import "../../styles/globals";
-@import "../../styles/animations";
-@import "../../styles/mixins";
-@import "../../styles/functions";
+@use "../../styles/variables"as *;
+@use "../../styles/mixins" as *;
+
 
 .work {
     width: 100vw;
@@ -11,7 +9,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: black;
     @include breakpoint(md) {
         flex-direction: row;
     }
@@ -21,6 +18,10 @@
         @include breakpoint(md) {
             height: 100vh;
             width: 50vw;
+        }
+        .cube{
+            pointer-events: none;
+            user-select: none;
         }
     }
     &__detail {

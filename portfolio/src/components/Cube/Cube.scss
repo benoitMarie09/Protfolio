@@ -1,8 +1,5 @@
-@import "../../styles/variables";
-@import "../../styles/globals";
-@import "../../styles/animations";
-@import "../../styles/mixins";
-@import "../../styles/functions";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .layout {
     display: flex;
@@ -12,7 +9,7 @@
     height: 50vh;
     z-index: 1000;
     perspective: 500vh;
-    perspective-origin: 50% 0%;
+    perspective-origin: -50% 0%;
     @include breakpoint(md) {
         width: 50vw;
         height: 100vh;

@@ -1,8 +1,5 @@
-@import "../../styles/variables";
-@import "../../styles/globals";
-@import "../../styles/animations";
-@import "../../styles/mixins";
-@import "../../styles/functions";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .cursor {
     visibility: visible;
@@ -10,6 +7,6 @@
         visibility: hidden;
     }
     &--done {
-        animation: blink 1300ms infinite;
+        animation: blink 1400ms infinite;
     }
 }

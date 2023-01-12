@@ -7,7 +7,7 @@ import "./Work.scss";
 export default function Work({ currentSlide, updateSlide }) {
     const slidesNb = works.getWorks().length;
     return (
-        <>
+        <main>
             {works.getWorks().map((worksItems, index) => (
                 <Slide
                     key={worksItems.key}
@@ -34,6 +34,6 @@ export default function Work({ currentSlide, updateSlide }) {
                     </div>
                 </Slide>
             ))}
-        </>
+        </main>
     );
 }

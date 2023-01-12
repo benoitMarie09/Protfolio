@@ -13,15 +13,14 @@ export default function TextTyper(props) {
     const [curText, setCurText] = useState("");
     const [isDone, setDone] = useState(false);
     let counter = itertext(props.text);
-    console.log(props.pageIndex);
     useEffect(() => {
         let done = false;
         let value = "";
         let i = 0;
         while (
-            !done &&
+            (!done &&
             props.curIndex === props.index &&
-            props.currentSlide === props.pageIndex
+            props.currentSlide === props.pageIndex) ||(!done && props.ready)
         ) {
             const cur = counter.next();
             value = cur.value;
@@ -50,7 +49,8 @@ export default function TextTyper(props) {
             <span
                 className={`${
                     props.curIndex === props.index ? "cursor" : "cursor--hidden"
-                }`}
+                    
+                } `}
             >
                 {props.cursor}
             </span>

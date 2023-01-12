@@ -1,36 +1,24 @@
-@import "./styles/variables";
+@use "./styles/variables" as *;
+@use "./styles/mixins" as *;
 @import "./styles/globals";
-@import "./styles/animations";
-@import "./styles/mixins";
-@import "./styles/functions";
+@import "./styles/cubes";
+
+
 
 body {
-  background-color: $secondary-color;
   height: 100vh;
+  width: 100vw;
+  background: repeating-linear-gradient(
+    60deg,
+    black,
+    rgb(36, 36, 36),
+    black 4px
+  );
   overflow: hidden;
-  margin: 0;
 }
 
 #root {
   transform-style: preserve-3d;
 }
 
-.cube {
-  user-select: none;
-  &--medium {
-    @include cube-setup(15vh);
-  }
-  &--small {
-    @include cube-setup(1.5vh);
-  }
 
-  &__image {
-    width: 100%;
-    height: 100%;
-  }
-  &--green {
-    & > * {
-      box-shadow: 0 0 5px $primary-color inset, 0 0 5px $primary-color;
-    }
-  }
-}

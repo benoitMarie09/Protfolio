@@ -1,31 +1,36 @@
-@import "../../styles/variables";
-@import "../../styles/globals";
-@import "../../styles/animations";
-@import "../../styles/mixins";
-@import "../../styles/functions";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use"../../styles/animations" as *;
 
 .nav {
-    position: fixed;
-    width: 100%;
+    position: absolute;
+    width: 100vw;
+    height: 0vh;
     padding: 10px;
-    background: $navbar-color;
+    padding-right: 40px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    perspective: 200vh;
+    perspective-origin: 170% -60%;
     z-index: 200;
-    &__container {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap-reverse;
-        perspective: 200vh;
-        perspective-origin: 100% 0%;
-        .scene {
-            position: relative;
-            transform-style: preserve-3d;
-        }
-      &__cube {
-        transform: translate(30px);
+
+    .scene {
+        position: relative;
+        transform-style: preserve-3d;
+    }
+
+    &__cube {
+        transition: all 1s cubic-bezier(.37,-0.9,.51,1.81);
+        z-index: 1000;
         pointer-events: auto;
+        &:hover{
+            cursor: pointer;
+            border: 2px;
+            box-shadow: 0 5px 13px $primary-color inset, 0 0 10px $primary-color;
+        }
     }
-    }
+
     .menu {
         position: fixed;
         display: flex;
@@ -35,8 +40,12 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: $menu-bg-color;
-        z-index: 250;
+        background: repeating-linear-gradient(
+            150deg,
+            black,
+            rgb(36, 36, 36),
+            black 4px
+          );
         opacity: 0;
         visibility: hidden;
         transition: all 1s;
@@ -53,10 +62,9 @@
 
                 a {
                     display: block;
-                    font-family: "Frijole", cursive;
                     line-height: 25px;
                     padding: 1rem;
-                    color: $menu-color;
+                    color: $primary-color;
                     font-size: $font-size;
 
                     &:hover {
@@ -65,11 +73,11 @@
                     }
                 }
                 & > .active {
-                    color: lighten($menu-color, 40%);
+                    color: lighten($primary-color, 40%);
                 }
             }
         }
-        &--show {
+        &--open {
             opacity: 1;
             visibility: visible;
             transition-delay: 0s;
@@ -78,4 +86,18 @@
             }
         }
     }
+}
+
+.nav--menu{
+    .cube--menu{
+        transform:rotateY(180deg);
+        transition: 1s cubic-bezier(.37,-0.9,.51,1.81);
+    }
+}
+
+.x{
+    display: inline;
+    fill: rgb(29, 138, 7);
+    stroke-width: 1px;
+    stroke: rgb(29, 138, 7);
 }

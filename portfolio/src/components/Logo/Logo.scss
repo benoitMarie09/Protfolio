@@ -1,0 +1,37 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use"../../styles/animations" as *;
+
+.main{
+  width:100vw;
+  height:100vh;
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline;
+    fill: #00000000;
+    stroke-width: 0.2px;
+    stroke: rgb(29, 138, 7);
+    stroke-dasharray: 263;
+    stroke-dashoffset: 263;
+    animation: logoStroke 2.5s forwards, logoFill 2.5s 2s forwards;
+  }
+  .logo__desc{
+    font-size: 1.6em;
+    position: relative;
+    top:55%;
+    left: 45%;
+    @include breakpoint(md) {
+      font-size: 2em;
+      left: 45%;
+  }
+  }
+  .cursor{
+    animation : 3.5s appear, ;
+  }
+}
+
+
+

@@ -1,8 +1,6 @@
-@import "../../styles/variables";
-@import "../../styles/globals";
-@import "../../styles/animations";
-@import "../../styles/mixins";
-@import "../../styles/functions";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
 
 .detail {
     height: 100%;
@@ -26,7 +24,7 @@
     }
     &__button {
         background-color: $primary-color;
-        color: black;
+        color: $secondary-color;
         border: none;
         border-radius: 5px;
         padding: 5px;  

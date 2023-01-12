@@ -1,12 +1,12 @@
 import "./Home.scss";
+import Logo from "../../components/Logo/Logo"
 
-function Home() {
+export default function Home() {
 
   return (
     <div>
-      <h1>HOME</h1>
+      <Logo></Logo>
     </div>
   );
 }
 
-export default Home;

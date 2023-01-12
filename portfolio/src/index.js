@@ -3,7 +3,7 @@ import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CubicMenu from "./components/CubicMenu/CubicMenu";
-// import Home from "./pages/Home/Home";
+import Home from "./pages/Home/Home";
 import Work from "./pages/Work/Work";
 import About from "./pages/About/About";
 import NoPage from "./pages/NoPage/NoPage";
@@ -22,7 +22,7 @@ export default function App() {
           <Route
             index
             element={
-              <Work currentSlide={currentSlide} updateSlide={updateSlide} />
+              <Home />
             }
           />
           <Route
