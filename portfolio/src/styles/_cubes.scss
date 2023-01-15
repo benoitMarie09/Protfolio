@@ -1,10 +1,10 @@
 
 .cube {
     &--medium {
-      @include cube-setup(15vh);
+      @include cube-setup(min(15vw,20vh));
     }
     &--small {
-      @include cube-setup(1.5vh);
+      @include cube-setup(14px);
       &--open{
         @include cube-open(2.3vh);
       }

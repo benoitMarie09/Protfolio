@@ -4,31 +4,32 @@ import "../TextTyper/TextTyper";
 import TextTyper from "../TextTyper/TextTyper";
 
 export default function Detail(props) {
-    const [cursor, setCursor] = useState(0);
-    const currentSlide = props.currentSlide;
+    const {details, pageVIndex} = props
+    const [cursorIndex, setCursorIndex] = useState(0);
+
     return (
         <div className="detail">
             <h2 className="detail__name">
                 <TextTyper
-                    curIndex={cursor}
-                    indexSetter={setCursor}
-                    text={props.details.name}
-                    delay={props.pageIndex === 0 ? 300 : 1500}
+                    cursorIndex={cursorIndex}
+                    setCursorIndex={setCursorIndex}
+                    text={details.name}
+                    delay={pageVIndex === 0 ? 300 : 1500}
                     speed={70}
                     cursor={"\u2588"}
-                    index={0}
-                    currentSlide={currentSlide}
-                    pageIndex={props.pageIndex}
+                    textIndex={0}
+                    pageVIndex={pageVIndex}
+                    pageHIndex={1}
                 />
             </h2>
             <p className="detail__description">
                 <TextTyper
-                    curIndex={cursor}
-                    indexSetter={setCursor}
-                    text={props.details.desc}
-                    index={1}
-                    currentSlide={currentSlide}
-                    pageIndex={props.pageIndex}
+                    cursorIndex={cursorIndex}
+                    setCursorIndex={setCursorIndex}
+                    text={details.desc}
+                    textIndex={1}
+                    pageVIndex={pageVIndex}
+                    pageHIndex={1}
                 />
             </p>
             <table className="detail__info">
@@ -42,69 +43,68 @@ export default function Detail(props) {
                 <tbody>
                     <tr>
                         <td>
-                            {props.details.technos.map((tec, index) => (
+                            {details.technos.map((tec, index) => (
                                 <p key={index}>
                                     <TextTyper
-                                        curIndex={cursor}
-                                        indexSetter={setCursor}
+                                        cursorIndex={cursorIndex}
+                                        setCursorIndex={setCursorIndex}
                                         text={tec}
                                         delay={300}
                                         speed={30}
                                         cursor={"\u2588"}
-                                        index={2 + index}
-                                        currentSlide={currentSlide}
-                                        pageIndex={props.pageIndex}
+                                        textIndex={2 + index}
+                                        pageVIndex={pageVIndex}
+                                        pageHIndex={1}
                                     />
                                 </p>
                             ))}
                         </td>
                         <td>
-                            {props.details.roles.map((role, index) => (
+                            {details.roles.map((role, index) => (
                                 <p key={index}>
                                     <TextTyper
-                                        curIndex={cursor}
-                                        indexSetter={setCursor}
+                                        cursorIndex={cursorIndex}
+                                        setCursorIndex={setCursorIndex}
                                         text={role}
                                         delay={300}
                                         speed={30}
                                         cursor={"\u2588"}
-                                        index={
+                                        textIndex={
                                             3 +
-                                            props.details.technos.length +
+                                            details.technos.length +
                                             index -
                                             1
                                         }
-                                        currentSlide={currentSlide}
-                                        pageIndex={props.pageIndex}
+                                        pageVIndex={pageVIndex}
+                                        pageHIndex={1}
                                     />
                                 </p>
                             ))}
                         </td>
                         <td>
                             <TextTyper
-                                curIndex={cursor}
-                                indexSetter={setCursor}
-                                text={props.details.year}
+                                cursorIndex={cursorIndex}
+                                setCursorIndex={setCursorIndex}
+                                text={details.year}
                                 delay={300}
                                 speed={30}
                                 cursor={"\u2588"}
-                                index={
+                                textIndex={
                                     4 +
-                                    props.details.technos.length +
-                                    props.details.roles.length -
+                                    details.technos.length +
+                                    details.roles.length -
                                     2
                                 }
-                                currentSlide={currentSlide}
-                                pageIndex={props.pageIndex}
+                                pageVIndex={pageVIndex}
+                                pageHIndex={1}
                             />
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <a href={props.details.url}>
+            <a href={details.url}>
                 <button className="detail__button">visit website</button>
             </a>
-            {props.children}
         </div>
     );
 }

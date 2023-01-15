@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import "./TextTyper.scss";
+import { SlideContext } from "../../index";
+
 
 function* itertext(text) {
     let rest = String(text).split("");
@@ -10,42 +12,61 @@ function* itertext(text) {
 }
 
 export default function TextTyper(props) {
+    const currentSlide= useContext(SlideContext).currentSlide;
+    const {
+        pageHIndex,
+        pageVIndex,
+        text, 
+        textIndex, 
+        cursorIndex, 
+        ready, 
+        delay, 
+        speed, 
+        cursor, 
+        setCursorIndex, 
+    } = props
     const [curText, setCurText] = useState("");
     const [isDone, setDone] = useState(false);
-    let counter = itertext(props.text);
+    let counter = itertext(text);
+    console.log("I:",cursorIndex)
+    // console.log("V:",pageVIndex)
+    
+    
     useEffect(() => {
         let done = false;
-        let value = "";
+        let letter = "";
         let i = 0;
         while (
-            (!done &&
-            props.curIndex === props.index &&
-            props.currentSlide === props.pageIndex) ||(!done && props.ready)
+            !isDone && ((!done &&
+            cursorIndex === textIndex &&
+            currentSlide.v === pageVIndex &&
+            currentSlide.h === pageHIndex) || (!done && ready))
         ) {
-            const cur = counter.next();
-            value = cur.value;
-            done = cur.done;
+            const currentLetter = counter.next();
+            letter = currentLetter.value;
+            done = currentLetter.done;
             if (!done) {
                 setTimeout(
                     (val) => {
                         // console.log(val);
                         setCurText(val);
                     },
-                    props.speed * i + props.delay,
-                    value
+                    speed * i + delay,
+                    letter
                 );
             } else {
                 setTimeout(() => {
-                    props.indexSetter(props.index + 1);
-                }, props.speed * i + props.delay);
+                    setCursorIndex(textIndex + 1);
+                }, speed * i + delay);
             }
             i += 1;
         }
-    }, [props]);
+    }
+     ,[currentSlide.v, currentSlide.h, textIndex, speed, delay, cursorIndex, pageVIndex, pageHIndex, ready, setCursorIndex]);
     
     useEffect(() => {
-        !props.index && setDone(curText === props.text)
-    }, [curText,props.text])
+        !textIndex && setDone(curText === text)
+    }, [curText,text,textIndex])
     
     
     return (
@@ -53,11 +74,11 @@ export default function TextTyper(props) {
             <span>{curText}</span>
             <span
                 className={`${
-                    props.curIndex === props.index ? "cursor" : "cursor--hidden"
+                    cursorIndex === textIndex ? "cursor" : "cursor--hidden"
                     
                 } ${isDone && "cursor--done"} `}
             >
-                {props.cursor}
+                {cursor}
             </span>
         </>
     );

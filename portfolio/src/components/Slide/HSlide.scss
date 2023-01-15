@@ -14,7 +14,7 @@
   &--rigth {
     transform: translateX(100%);
     transition: 1300ms cubic-bezier(.59,-0.01,.17,1.14);
-    .arrow {
+    .Sidebar {
       opacity: 0;
     }
   }
@@ -27,14 +27,12 @@
   }
   .Sidebar {
     position: absolute;
-    
     height: 100%;
     width: 5%;
     min-width: 30px;
     max-width: 70px;
-    background-color: rgba(43, 43, 43, 0.144);
-    transition: background-color 0.5s ease;
-    transition: opacity 1.4s ease;
+    background-color: fade-out($primary-color,0.96);
+    transition: opacity 1.4s ease,background-color 2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,7 +53,7 @@
       display:none;
     }
     &:hover{
-      background-color: rgba(77, 77, 77, 0.144);
+      background-color: fade-out($primary-color,0.9);
       & span{
         opacity : 1;
       }

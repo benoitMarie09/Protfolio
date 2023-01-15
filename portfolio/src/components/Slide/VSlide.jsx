@@ -1,24 +1,31 @@
+import { useContext } from "react";
+import { Outlet } from "react-router-dom";
 import "./VSlide.scss";
+import { SlideContext } from "../../index";
 
-function VSlide(props) {
-  const { currentSlide, updateSlide, index, slidesNb } = props;
-  const z = slidesNb - index;
+export default function VSlide(props) {
+  const {currentSlide, setCurrentSlide } = useContext(SlideContext);
+  const z = props.slidesNb - props.index;
+
+
   function wheelSlide(event) {
     if (event.deltaY > 0) {
-      if (currentSlide < slidesNb - 1) {
-        updateSlide(index + 1);
+      if (currentSlide.v < props.slidesNb - 1) {
+        setCurrentSlide({...currentSlide,v:currentSlide.v+1});
       }
     } else {
-      if (currentSlide >= 1) updateSlide(index - 1);
+      if (currentSlide.v >= 1) {
+        setCurrentSlide({...currentSlide,v:currentSlide.v-1});
     }
   }
+}
 
   return (
     <div
       className={`Vslide ${
-        currentSlide === index
+        currentSlide.v === props.index
           ? ""
-          : currentSlide > index
+          : currentSlide.v > props.index
           ? "Vslide--up"
           : "Vslide--down"
       }`}
@@ -26,8 +33,9 @@ function VSlide(props) {
       onWheel={(e) => wheelSlide(e)}
     >
       {props.children}
+      <Outlet />
     </div>
   );
 }
 
-export default VSlide;
+

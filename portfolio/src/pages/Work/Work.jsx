@@ -4,15 +4,13 @@ import Detail from "../../components/Work_detail/Work_detail";
 import { works } from "../../data/works";
 import "./Work.scss";
 
-export default function Work({ currentSlide, updateSlide }) {
+export default function Work(props) {
     const slidesNb = works.getWorks().length;
     return (
-        <main>
+        <>
             {works.getWorks().map((worksItems, index) => (
                 <VSlide
                     key={worksItems.key}
-                    currentSlide={currentSlide}
-                    updateSlide={updateSlide}
                     index={index}
                     slidesNb={slidesNb}
                 >
@@ -27,13 +25,12 @@ export default function Work({ currentSlide, updateSlide }) {
                         <div className="work__detail">
                             <Detail
                                 details={worksItems.details}
-                                currentSlide={currentSlide}
-                                pageIndex={index}
+                                pageVIndex={index}
                             />
                         </div>
                     </div>
                 </VSlide>
             ))}
-        </main>
+        </>
     );
 }

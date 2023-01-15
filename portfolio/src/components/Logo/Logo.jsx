@@ -1,10 +1,9 @@
 import React from "react";
-import { useState } from "react";
 import TextTyper from "../TextTyper/TextTyper";
 import "./Logo.scss";
 
 export default function Logo() {
-  const [cursor, setCursor] = useState(0);
+
     return (
         <div className="main">
             <svg
@@ -39,6 +38,7 @@ export default function Logo() {
                     delay={4000}
                     speed ={200}
                     cursor={"\u2588"}
+                    pageHIndex={0}
                 />
             </p>
         </div>

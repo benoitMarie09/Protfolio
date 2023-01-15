@@ -7,11 +7,11 @@
     width: 100vw;
     height: 0vh;
     padding: 10px;
-    padding-right: 40px;
+    padding-right: max(5%,70px);
     padding-top: 30px;
     display: flex;
     justify-content: flex-end;
-    perspective: 200vh;
+    perspective: 1500px;
     perspective-origin: 170% -60%;
     z-index: 200;
 
@@ -25,7 +25,7 @@
         z-index: 1000;
         pointer-events: auto;
         &:hover{
-            transition: box-shadow 0.8s cubic-bezier(.37,-0.9,.51,2);
+            transition: box-shadow 0.8s cubic-bezier(.37,-0.9,.51,2), transform 1s cubic-bezier(.37,-0.9,.51,1.81);
             cursor: pointer;
             border: 2px;
             box-shadow: 0 10px 18px $primary-color inset, 0 0 10px $primary-color;
@@ -67,16 +67,12 @@
             animation: scale-out 0.5s both ease;
             & > li {
                 
-
-                button {
-                    transition: all 0.5s ease;
-                    text-align: center;
-                    background-color: transparent;
-                    border: none;
+                a {
+                    display: block;
+                    line-height: 25px;
                     padding: 1rem;
                     color: $primary-color;
                     font-size: $font-size;
-
                     &:hover {
                         padding-left: 2rem;
                         letter-spacing: 5px;
@@ -96,12 +92,12 @@
             }
         }
     }
-}
 
+}
 .nav--menu{
     .cube--menu{
         transform:rotateY(180deg);
-        transition: 1s cubic-bezier(.37,-0.9,.51,1.81);
+        transition: all 1s cubic-bezier(.37,-0.9,.51,1.81);
     }
 }
 
