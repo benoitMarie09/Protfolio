@@ -1,11 +1,11 @@
-import "./Slide.scss";
+import "./VSlide.scss";
 
-function Slide(props) {
-  const { currentSlide, updateSlide, index, slideNb } = props;
-  const z = slideNb - index;
+function VSlide(props) {
+  const { currentSlide, updateSlide, index, slidesNb } = props;
+  const z = slidesNb - index;
   function wheelSlide(event) {
     if (event.deltaY > 0) {
-      if (currentSlide < slideNb - 1) {
+      if (currentSlide < slidesNb - 1) {
         updateSlide(index + 1);
       }
     } else {
@@ -15,12 +15,12 @@ function Slide(props) {
 
   return (
     <div
-      className={`slide ${
+      className={`Vslide ${
         currentSlide === index
           ? ""
           : currentSlide > index
-          ? "slide--up"
-          : "slide--down"
+          ? "Vslide--up"
+          : "Vslide--down"
       }`}
       style={{ zIndex: z }}
       onWheel={(e) => wheelSlide(e)}
@@ -30,4 +30,4 @@ function Slide(props) {
   );
 }
 
-export default Slide;
+export default VSlide;

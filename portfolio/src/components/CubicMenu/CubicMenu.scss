@@ -25,9 +25,16 @@
         z-index: 1000;
         pointer-events: auto;
         &:hover{
+            transition: box-shadow 0.8s cubic-bezier(.37,-0.9,.51,2);
             cursor: pointer;
             border: 2px;
-            box-shadow: 0 5px 13px $primary-color inset, 0 0 10px $primary-color;
+            box-shadow: 0 10px 18px $primary-color inset, 0 0 10px $primary-color;
+            .x{
+                display: inline;
+                fill: lighten($primary-color,40%);
+                stroke-width: 1px;
+                stroke: lighten($primary-color,40%);
+            }
         }
     }
 
@@ -43,7 +50,7 @@
         background: repeating-linear-gradient(
             150deg,
             black,
-            rgb(36, 36, 36),
+            rgb(17, 17, 17),
             black 4px
           );
         opacity: 0;
@@ -56,13 +63,16 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            align-items: center;
             animation: scale-out 0.5s both ease;
             & > li {
-                text-align: center;
+                
 
-                a {
-                    display: block;
-                    line-height: 25px;
+                button {
+                    transition: all 0.5s ease;
+                    text-align: center;
+                    background-color: transparent;
+                    border: none;
                     padding: 1rem;
                     color: $primary-color;
                     font-size: $font-size;

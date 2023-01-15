@@ -40,9 +40,14 @@ export default function TextTyper(props) {
                 }, props.speed * i + props.delay);
             }
             i += 1;
-            done && setDone(true);
         }
     }, [props]);
+    
+    useEffect(() => {
+        !props.index && setDone(curText === props.text)
+    }, [curText,props.text])
+    
+    
     return (
         <>
             <span>{curText}</span>
@@ -50,7 +55,7 @@ export default function TextTyper(props) {
                 className={`${
                     props.curIndex === props.index ? "cursor" : "cursor--hidden"
                     
-                } `}
+                } ${isDone && "cursor--done"} `}
             >
                 {props.cursor}
             </span>

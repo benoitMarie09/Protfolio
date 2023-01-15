@@ -11,7 +11,7 @@ body {
   background: repeating-linear-gradient(
     60deg,
     black,
-    rgb(36, 36, 36),
+    rgb(17, 17, 17),
     black 4px
   );
   overflow: hidden;
@@ -21,4 +21,6 @@ body {
   transform-style: preserve-3d;
 }
 
-
+.resize-transition-stopper * {
+  transition: none !important;
+}

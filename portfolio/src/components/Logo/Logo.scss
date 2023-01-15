@@ -25,11 +25,14 @@
     left: 45%;
     @include breakpoint(md) {
       font-size: 2em;
-      left: 45%;
+      left: 50%;
   }
   }
   .cursor{
     animation : 3.5s appear, ;
+    &--done {
+      animation: blink 1400ms infinite;
+  }
   }
 }
 

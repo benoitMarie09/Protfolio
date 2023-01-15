@@ -26,7 +26,7 @@ const CubicMenu = ({ currentSlide, updateSlide }) => {
                     <ul className="menu__links">
                         {headerMenu.getHeaderMenu().map((menuItem) => (
                             <li key={menuItem.key}>
-                                <Link
+                                <button
                                     className={
                                         menuItem.key === currentSlide
                                             ? "active"
@@ -40,7 +40,7 @@ const CubicMenu = ({ currentSlide, updateSlide }) => {
                                     {menuItem.key === currentSlide
                                         ? "- " + menuItem.label + " -"
                                         : menuItem.label}
-                                </Link>
+                                </button>
                             </li>
                         ))}
                     </ul>
@@ -63,7 +63,6 @@ const CubicMenu = ({ currentSlide, updateSlide }) => {
                     </div>
                 </div>
             </nav>
-            <Outlet />
         </>
     );
 };

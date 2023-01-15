@@ -3,10 +3,8 @@
 
 .cursor {
     visibility: visible;
+    font-size: 0.8em;
     &--hidden {
         visibility: hidden;
-    }
-    &--done {
-        animation: blink 1400ms infinite;
     }
 }

@@ -1,5 +1,9 @@
-@import "../../styles/variables";
-@import "../../styles/globals";
-@import "../../styles/animations";
-@import "../../styles/mixins";
-@import "../../styles/functions";
+@use "../../styles/variables"as *;
+@use "../../styles/mixins" as *;
+
+
+
+
+.border{
+  fill: $primary-color
+}

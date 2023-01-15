@@ -1,5 +1,5 @@
 import Cube from "../../components/Cube/Cube";
-import Slide from "../../components/Slide/Slide";
+import VSlide from "../../components/Slide/VSlide";
 import Detail from "../../components/Work_detail/Work_detail";
 import { works } from "../../data/works";
 import "./Work.scss";
@@ -9,12 +9,12 @@ export default function Work({ currentSlide, updateSlide }) {
     return (
         <main>
             {works.getWorks().map((worksItems, index) => (
-                <Slide
+                <VSlide
                     key={worksItems.key}
                     currentSlide={currentSlide}
                     updateSlide={updateSlide}
                     index={index}
-                    slideNb={slidesNb}
+                    slidesNb={slidesNb}
                 >
                     <div className="work">
                         <div className="work__cube">
@@ -32,7 +32,7 @@ export default function Work({ currentSlide, updateSlide }) {
                             />
                         </div>
                     </div>
-                </Slide>
+                </VSlide>
             ))}
         </main>
     );
