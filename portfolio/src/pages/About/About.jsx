@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div className="about">
       <ProfileSVG />
-      <p>Nom : <TextTyper
+      <p><b>Nom</b> : <TextTyper
                     cursorIndex={cursorIndex}
                     setCursorIndex={setCursorIndex}
                     text={"Marie"}
@@ -16,11 +16,50 @@ const About = () => {
                     speed={70}
                     cursor={"\u2588"}
                     textIndex={0}
-                    ready={true}
-                /></p>
-      <p>Prenom : Benoit</p>
-      <p>Profession : développeur web</p>
-      <p>Info : Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptates aliquam blanditiis nam saepe similique ullam sequi tempore consequatur minima, adipisci, accusantium veniam. Quos amet tempore, id voluptatum voluptate inventore.</p>
+                    pageVIndex={0}
+                    pageHIndex={2}
+                    
+                />
+      </p>
+      <p><b>Prenom</b> : <TextTyper
+                    cursorIndex={cursorIndex}
+                    setCursorIndex={setCursorIndex}
+                    text={"Benoit"}
+                    delay={300}
+                    speed={70}
+                    cursor={"\u2588"}
+                    textIndex={1}
+                    pageVIndex={0}
+                    pageHIndex={2}
+                    
+                />
+      </p>
+      <p><b>Profession</b> : <TextTyper
+                    cursorIndex={cursorIndex}
+                    setCursorIndex={setCursorIndex}
+                    text={"développeur web"}
+                    delay={300}
+                    speed={70}
+                    cursor={"\u2588"}
+                    textIndex={2}
+                    pageVIndex={0}
+                    pageHIndex={2}
+                    
+                />
+      </p>
+      <p><b>Informations</b> : <TextTyper
+                    cursorIndex={cursorIndex}
+                    setCursorIndex={setCursorIndex}
+                    text={"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptates aliquam blanditiis nam saepe similique ullam sequi tempore consequatur minima, adipisci, accusantium veniam. Quos amet tempore, id voluptatum voluptate inventore."}
+                    delay={300}
+                    speed={70}
+                    cursor={"\u2588"}
+                    textIndex={3}
+                    pageVIndex={0}
+                    pageHIndex={2}
+                    
+                />
+      </p>
     </div>
   );
 };
