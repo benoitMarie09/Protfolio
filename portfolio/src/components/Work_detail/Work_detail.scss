@@ -22,13 +22,6 @@
     &__description{
       width: min(70%,400px);
     }
-    &__button {
-        background-color: $primary-color;
-        color: $secondary-color;
-        border: none;
-        border-radius: 5px;
-        padding: 5px;  
-    }
     table,
     th,
     td {

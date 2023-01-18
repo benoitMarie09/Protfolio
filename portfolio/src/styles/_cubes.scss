@@ -1,13 +1,13 @@
 
 .cube {
     &--medium {
-      @include cube-setup(min(15vw,20vh));
+      @include cube-setup($medium-cube-size);
     }
     &--small {
-      @include cube-setup(14px);
-      &--open{
-        @include cube-open(2.3vh);
-      }
+      @include cube-setup($small-cube-size);
+    }
+    &--very-small {
+      @include cube-setup($very-small-cube-size);
     }
     &__image {
       width: 100%;
@@ -17,6 +17,18 @@
       & > * {
         border: 2px;
         box-shadow: 0 0 10px $primary-color inset, 0 0 2px  lighten($primary-color, 20%);
+      }
+    }
+    &--inactive {
+      & > * {
+        border: 2px;
+        box-shadow: 0 0 5px fade-out($primary-color,0.5) inset, 0 0 15px  fade-out($primary-color,0.6);
+      }
+    }
+    &--active {
+      & > * {
+        border: 2px;
+        box-shadow: 0 0 10px $primary-color inset, 0 0 15px  lighten($primary-color, 20%);
       }
     }
   }

@@ -39,6 +39,7 @@ export default function Logo() {
                     speed ={200}
                     cursor={"\u2588"}
                     pageHIndex={0}
+                    pageVIndex={0}
                 />
             </p>
         </div>

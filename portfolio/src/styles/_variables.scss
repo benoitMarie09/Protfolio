@@ -14,6 +14,8 @@ $navbar-bg-color: rgba(0, 0, 0, 0);
 $primary-color: #1d8a07;
 $complementary-color: #74078a;
 $secondary-color: black;
+$active-color:rgb(255, 145, 0);
+
 /* Menu */
 $navbar-color:rgb(0, 0, 0);
 $menu-color: rgb(141, 141, 141);
@@ -21,9 +23,12 @@ $menu-bg-color: rgba(0, 0, 0, 0.945);
 
 /* Cube */
 $cube_face-color: rgba(0, 0, 0, 0.836);
+$medium-cube-size : min(15vw,20vh);
+$small-cube-size : 14px;
+$very-small-cube-size : 8px;
 
-
-
+/* button */
+$button-size : 100px;
 
 $breakpoints: (
     sm: (

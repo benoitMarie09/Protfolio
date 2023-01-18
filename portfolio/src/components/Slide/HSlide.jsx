@@ -32,7 +32,6 @@ function HSlide(props) {
           ? "Hslide--left"
           : "Hslide--rigth"
       }`}
-      style={{ zIndex: z }}
     >
       <Link to={nextPage ? nextPage.url : ""}><div className={`Sidebar Sidebar--right ${currentSlide.h === slidesNb-1 ? "Sidebar--hidden" : ""}`} ><span>{nextPage ? nextPage.name:""}</span> </div></Link>
       <Link to={previousPage ? previousPage.url: ""}><div className={`Sidebar Sidebar--left ${currentSlide.h === 0 ? "Sidebar--hidden" : ""}`} ><span>{previousPage ? previousPage.name : ""}</span></div></Link>

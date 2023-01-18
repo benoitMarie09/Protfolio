@@ -9,19 +9,20 @@ export default function VSlide(props) {
 
 
   function wheelSlide(event) {
+
     if (event.deltaY > 0) {
       if (currentSlide.v < props.slidesNb - 1) {
-        setCurrentSlide({...currentSlide,v:currentSlide.v+1});
+        setCurrentSlide({...currentSlide,v:props.index+1});
       }
     } else {
       if (currentSlide.v >= 1) {
-        setCurrentSlide({...currentSlide,v:currentSlide.v-1});
+        setCurrentSlide({...currentSlide,v:props.index-1});
     }
   }
 }
 
   return (
-    <div
+    <div index={props.index}
       className={`Vslide ${
         currentSlide.v === props.index
           ? ""

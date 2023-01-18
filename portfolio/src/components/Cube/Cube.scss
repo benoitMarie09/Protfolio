@@ -7,13 +7,15 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 50vh;
-    z-index: 1000;
+    height: 40vh;
+    top:150px;
+
     perspective: 500vw;
     perspective-origin: -50% 0%;
     @include breakpoint(md) {
         width: 50vw;
-        height: 100vh;
+        height: calc(100vh - 200px);
+
     }
     &:hover {
         cursor: grab;

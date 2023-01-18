@@ -24,3 +24,25 @@ body {
 .resize-transition-stopper * {
   transition: none !important;
 }
+
+.button {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: $button-size;
+  &:hover{
+    cursor: pointer;
+  }
+  &__classic{
+    background-color: $secondary-color;
+    color: $primary-color;
+    border : solid 2px
+  }
+  &__green{
+    background-color: $primary-color;
+    color: $secondary-color;
+    &> h1,h2,h3,p{
+      color: $secondary-color;
+    }
+  }
+}

@@ -103,7 +103,7 @@ export default function Detail(props) {
                 </tbody>
             </table>
             <a href={details.url}>
-                <button className="detail__button">visit website</button>
+                <button className="button button__green">visit website</button>
             </a>
         </div>
     );
