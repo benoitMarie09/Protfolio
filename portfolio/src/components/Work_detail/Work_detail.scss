@@ -22,6 +22,15 @@
     &__description{
       width: min(70%,400px);
     }
+    &__links{
+        width:40%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    &__git-logo{
+        height:40px;
+    }
     table,
     th,
     td {

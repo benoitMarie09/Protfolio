@@ -4,6 +4,8 @@ import "../TextTyper/TextTyper";
 import TextTyper from "../TextTyper/TextTyper";
 
 export default function Detail(props) {
+    var path = process.env.PUBLIC_URL;
+    var image = "/images/github_icon.png";
     const {details, pageVIndex} = props
     const [cursorIndex, setCursorIndex] = useState(0);
 
@@ -102,9 +104,15 @@ export default function Detail(props) {
                     </tr>
                 </tbody>
             </table>
-            <a href={details.url}>
-                <button className="button button__green">visit website</button>
-            </a>
+            <div className="detail__links">
+                <a href={details.url} target="_blank" rel="noopener noreferrer">
+                    <button className="button button__green">visit website</button>
+                </a>
+                {details.git && 
+                <a href={details.git} target="_blank" rel="noopener noreferrer">
+                    <img className="detail__git-logo" src={path + image} alt="github logo"/>
+                </a>}
+            </div>
         </div>
     );
 }
