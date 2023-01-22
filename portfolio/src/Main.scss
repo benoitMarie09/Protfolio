@@ -20,6 +20,11 @@ body {
 #root {
   transform-style: preserve-3d;
 }
+main{
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+}
 
 .resize-transition-stopper * {
   transition: none !important;

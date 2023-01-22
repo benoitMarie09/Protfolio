@@ -4,23 +4,26 @@
 
 .detail {
     height: 100%;
-    padding:70px 50px;
+    padding:70px 120px;
     color: $primary-color;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    @include breakpoint(sm){
+        padding:70px 0px;
+    }
     @include breakpoint(md) {
-        padding: 300px 20px;
+        padding: 300px 0px;
     }
     &__info {
-      width: min(70%,400px);
+      width: min(70%,550px);
       .col_1{width: 40%;}
       .col_2{width: 40%;}
       .col_3{width: 20%;}
   }
     &__description{
-      width: min(70%,400px);
+      width: min(70%,500px);
     }
     &__links{
         width:40%;

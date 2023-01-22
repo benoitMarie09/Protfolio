@@ -19,10 +19,15 @@
     animation: logoStroke 2.5s forwards, logoFill 2.5s 2s forwards;
   }
   .logo__desc{
-    font-size: 1.6em;
+    font-size: 1.4em;
     position: relative;
-    top:55%;
-    left: 45%;
+    top:58%;
+    left: 40%;
+    @include breakpoint(sm){
+      top:55%;
+      left: 45%;
+      font-size: 1.6em;
+    }
     @include breakpoint(md) {
       font-size: 2em;
       left: 50%;
