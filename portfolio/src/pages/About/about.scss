@@ -2,17 +2,44 @@
 @use "../../styles/mixins" as *;
 
 
-
 .about{
+  width:100vw;
+  height:100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink:0;
   font-size: 1.5em;
-  padding:100px 100px;
-  padding-right: 100px;
   
-
+  &__info{
+    width: 500px;
+    height:300px;
+    line-height: 150%;
+    overflow-y: scroll;
+    border: solid 2px ;
+    scrollbar-color:$primary-color $primary-color;
+  }
+  .profile {
+    height: 300px;
+  }
   b{
     text-decoration: underline
   }
+
 }
 
 
+.about__info::-webkit-scrollbar {
+  width: 11px;
+}
+.about__info {
+  scrollbar-width: thin;
+  scrollbar-color: $primary-color black;
+}
+.about__info::-webkit-scrollbar-track {
+  background: $primary-color;
+}
+.about__info::-webkit-scrollbar-thumb {
+  background-color: black ;
 
+}

@@ -8,6 +8,7 @@ const About = () => {
   return (
     <div className="about">
       <ProfileSVG />
+      <div className="about__info">
       <p><b>Nom</b> : <TextTyper
                     cursorIndex={cursorIndex}
                     setCursorIndex={setCursorIndex}
@@ -60,6 +61,7 @@ const About = () => {
                     
                 />
       </p>
+      </div>
     </div>
   );
 };

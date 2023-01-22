@@ -62,10 +62,30 @@
                 top: calc(-1 * $medium-cube-size);
             }
         }
+
+    }
+    .double-arrow{
+        position:absolute;
+        height:60px;
+        width:60px;
+        left:22%;
+        top:35%;
+        @include breakpoint(md){
+            top:65%;
+            left:25%;
+            rotate:-45deg;
+        }
+        stroke:$primary-color;
+        stroke-width: 5px;
+        fill:transparent;
     }
     &__detail {
         height: 50vh;
         width: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink:0;
         @include breakpoint(md) {
             height: 100vh;
             width: 50vw;
@@ -83,7 +103,7 @@
 .v-separator {
     content: "";
     display: inline-block;
-    width: 70vw;
+    width:32vw; 
     height: 0;
     border-top: 1px solid rgb(29, 138, 7, 0.4);
     border-bottom: 1px solid rgb(29, 138, 7, 0.4);
@@ -96,8 +116,94 @@
     border-right: 1px solid rgb(29, 138, 7, 0.4);
     border-left: 1px solid rgb(29, 138, 7, 0.4);
     width:0;
-    height: 40vh;
-    top: 25%;
+    height: 15vh;
     left: 50%;
+    }
+}
+
+
+.sep-1{
+   @include breakpoint(md){
+    width:0;
+    top: 25%;
+   }
+}
+
+.sep-2{
+    left:53%;
+    @include breakpoint(md){
+        width:0;
+        top:50%;
+        left: 50%;
+       }
+ }
+
+.icon-scroll, .icon-scroll::before{
+    position: absolute;
+    left:52%;
+    @include breakpoint(md){
+        left:50%;
+    }
+}
+
+ .icon-scroll{
+    width: 17px;
+    height: 30px;
+    margin-left: -20px;
+    top:47%;
+
+    margin-top: -35px;
+    box-shadow: inset 0 0 0 1px $primary-color;
+    border-radius: 25px;
+    @include breakpoint(md){
+        width: 40px;
+        height: 70px;
+        top:45%;
+        }
+ }
+
+
+.icon-scroll::before{
+    content: "";
+    width: 5px;
+    height: 5px;
+    background: $primary-color;
+    margin-left: -4px;
+    top: 8px;
+    border-radius: 4px;
+    animation: scroll-small 3.5s infinite;
+    @include breakpoint(md){
+        width: 8px;
+        height: 8px;
+
+    animation: scroll 3.5s infinite;
+    }
+}
+
+
+@keyframes scroll-small{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+        transform: translateY(25px);
+        }
+        100%{
+        opacity: 0;
+        transform: translateY(25px);
+        }
+}
+@keyframes scroll{
+    0%{
+        opacity: 1;
+    }
+  50%{
+    opacity: 0;
+    transform: translateY(46px);
+    }
+    100%{
+    opacity: 0;
+    transform: translateY(46px);
     }
 }
