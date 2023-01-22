@@ -65,7 +65,7 @@
     }
     &__detail {
         height: 50vh;
-        width: 80vh;
+        width: 50vh;
         @include breakpoint(md) {
             height: 100vh;
             width: 50vw;
