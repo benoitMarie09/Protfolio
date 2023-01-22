@@ -10,9 +10,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    @include breakpoint(sm){
-        padding:70px 0px;
-    }
     @include breakpoint(md) {
         padding: 300px 0px;
     }
