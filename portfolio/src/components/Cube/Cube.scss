@@ -12,7 +12,9 @@
 
     perspective: 500vw;
     perspective-origin: -50% 0%;
+    pointer-events: none;
     @include breakpoint(md) {
+        pointer-events: auto;
         width: 50vw;
         height: calc(100vh - 200px);
 
@@ -28,5 +30,18 @@
     .scene {
         position: relative;
         transform-style: preserve-3d;
+        animation : rotate 30s infinite linear;
+        @include breakpoint(md){
+            animation: none;
+        }
     }
+}
+@keyframes rotate {
+    0%{
+        transform: rotateX(0deg) rotateY(0) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+    
 }

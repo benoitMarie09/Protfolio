@@ -3,7 +3,7 @@ export const works = {
     {
       key: 1,
       details: {
-        name: "Portfolio Coline Lamy 1",
+        name: "Portfolio C. Lamy",
         desc: "Portfolio pour l'artiste peintre illustratrice Coline Lamy, avec galleries, diaporama, et une partie admin",
         technos: ["Django"],
         roles: ["front-end", "back-end"],
