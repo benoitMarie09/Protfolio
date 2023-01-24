@@ -3,18 +3,13 @@
 
 
 .profile{
-  margin: 0 30px;
-  float: left;
-  left:50px;
-  display: flex;
-  flex-direction: column;
   border:solid 2px rgb(29, 138, 7);
-  width:205px;
+
   .svg{
     display: inline-block;
-    width:200px;
+    width:100%;
     stroke: rgb(29, 138, 7);
-    
+
       path{
       fill-opacity:0;
       stroke-width:4;

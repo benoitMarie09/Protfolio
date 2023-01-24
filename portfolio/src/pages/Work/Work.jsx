@@ -39,7 +39,7 @@ export default function Work(props) {
                                 />
                          </svg>
                     <span className="v-separator sep-1"></span>
-                    <div class='icon-scroll'></ div>
+                    <div className='icon-scroll'></ div>
                     <span className="v-separator sep-2"></span>
                     <div className="work__detail">
                         <Detail

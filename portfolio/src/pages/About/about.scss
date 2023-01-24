@@ -5,22 +5,24 @@
 .about{
   width:100vw;
   height:100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink:0;
   font-size: 1.5em;
-  
+  padding: 100px 80px;
   &__info{
-    width: 500px;
-    height:300px;
+    width: 70vw;
+    height:70vh;
     line-height: 150%;
     overflow-y: scroll;
     border: solid 2px ;
     scrollbar-color:$primary-color $primary-color;
   }
   .profile {
-    height: 300px;
+    float: left;
+    margin-right: 5px;;
+    width:20vw;
+    min-width: 160px;
+    .button{ 
+      width:50%;
+    }
   }
   b{
     text-decoration: underline

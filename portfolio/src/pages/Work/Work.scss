@@ -45,6 +45,7 @@
     align-items: center;
     justify-content: center;
     @include breakpoint(md) {
+        font-size: 1em;
         flex-direction: row;
     }
     &__cube {

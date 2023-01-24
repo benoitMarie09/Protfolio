@@ -7,8 +7,9 @@ const About = () => {
   const [cursorIndex, setCursorIndex] = useState(0);
   return (
     <div className="about">
-      <ProfileSVG />
+      
       <div className="about__info">
+      <ProfileSVG />
       <p><b>Nom</b> : <TextTyper
                     cursorIndex={cursorIndex}
                     setCursorIndex={setCursorIndex}
