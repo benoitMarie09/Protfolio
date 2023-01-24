@@ -26,6 +26,7 @@ export default function Work(props) {
                             id={worksItems.key}
                             />
                     </div>
+                    <img className="website-image" src={worksItems.images[0]} alt="website" />
                         <svg
                         className="double-arrow"
                             version="1.1"

@@ -47,11 +47,13 @@
         flex-direction: row;
     }
     &__cube {
+        display:none;
         position: relative;
         top: -100px;
         height: 50vh;
         width: 100vw;
         @include breakpoint(md) {
+            display: block;
             height: 100vh;
             width: 50vw;
         }
@@ -64,13 +66,21 @@
         }
 
     }
+    .website-image{
+        width: 30vw;
+        @include breakpoint(md) {
+            display: none;
+        }
+    }
     .double-arrow{
         position:absolute;
+        display: none;
         height:60px;
         width:60px;
         left:22%;
         top:35%;
         @include breakpoint(md){
+            display: block;
             top:65%;
             left:25%;
             rotate:-45deg;
@@ -92,7 +102,6 @@
         }
         .detail{
             position: relative;
-            top: -100px;
             @include breakpoint(md) {
                 top: -50px;
             }
@@ -102,7 +111,7 @@
 
 .v-separator {
     content: "";
-    display: inline-block;
+    display: none;
     width:32vw; 
     height: 0;
     border-top: 1px solid rgb(29, 138, 7, 0.4);
@@ -113,6 +122,7 @@
     left: 15%;
 
     @include breakpoint(md) {
+    display: inline-block;
     border-right: 1px solid rgb(29, 138, 7, 0.4);
     border-left: 1px solid rgb(29, 138, 7, 0.4);
     width:0;
@@ -139,9 +149,11 @@
  }
 
 .icon-scroll, .icon-scroll::before{
+    display: none;
     position: absolute;
     left:52%;
     @include breakpoint(md){
+        display: block;
         left:50%;
     }
 }
