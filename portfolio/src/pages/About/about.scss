@@ -1,47 +1,87 @@
-@use "../../styles/variables"as *;
+@use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
-
-.about{
-  width:100vw;
-  height:100vh;
-  font-size: 1.5em;
-  padding: 100px 80px;
-  &__info{
-    width: 70vw;
-    height:70vh;
-    line-height: 150%;
-    overflow-y: scroll;
-    border: solid 2px ;
-    scrollbar-color:$primary-color $primary-color;
-  }
-  .profile {
-    float: left;
-    margin-right: 5px;;
-    width:20vw;
-    min-width: 160px;
-    .button{ 
-      width:50%;
+.about {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    padding: 100px 80px;
+    &__container {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        width: min(70vw,800px);
+        height: 70vh;
+        line-height: 150%;
+        border: solid 2px;
+        scrollbar-color: $primary-color $primary-color;
     }
-  }
-  b{
-    text-decoration: underline
-  }
-
+    header {
+        height: 70px;
+        width: 100%;
+        background-color: fade-out($color: $primary-color, $amount: 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7em;
+        @include breakpoint(sm){
+          font-size: 1em;
+        }
+        h2 {
+            color: black;
+        }
+    }
+    .profile {
+        position: absolute;
+        width: min(40vw,300px);
+        min-width: 160px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__info {
+        flex-grow: 1;
+        opacity: 0;
+        transition: 0s;
+        transition-delay: 0s;
+        overflow-y: scroll;
+        &--show {
+            position: static;
+            transition-delay: 4s;
+            opacity: 1;
+        }
+    }
+    b {
+        text-decoration: underline;
+    }
+    footer {
+        height: 60px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: fade-out($color: $primary-color, $amount: 0.5);
+        bottom: 0%;
+        z-index: 1000;
+        .button{
+          
+        }
+    }
 }
-
 
 .about__info::-webkit-scrollbar {
-  width: 11px;
+    width: 11px;
 }
 .about__info {
-  scrollbar-width: thin;
-  scrollbar-color: $primary-color black;
+    scrollbar-width: thin;
+    scrollbar-color: $primary-color black;
 }
 .about__info::-webkit-scrollbar-track {
-  background: $primary-color;
+    background: $primary-color;
 }
 .about__info::-webkit-scrollbar-thumb {
-  background-color: black ;
-
+    background-color: black;
 }

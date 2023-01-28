@@ -187,7 +187,7 @@ export default function Cube(props) {
                 onMouseOut={(e) => handleMouseUp(e)}
             >
                 <div className="scene" id={`scene${props.id}`}>
-                    <div className="cube cube--medium cube--green">
+                    <div className="cube cube--flexible cube--green">
                         <div className="cube__front">
                             <img
                                 className="cube__image"
