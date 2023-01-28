@@ -1,40 +1,28 @@
-import "./Work_detail.scss";
 import { useState } from "react";
-import "../TextTyper/TextTyper";
-import TextTyper from "../TextTyper/TextTyper";
+import "../../TextTyper/TextTyper";
+import TextTyper from "../../TextTyper/TextTyper";
+import "./Info.scss";
 
-export default function Detail(props) {
+export default function Info(props) {
     var path = process.env.PUBLIC_URL;
     var image = "/images/github_icon.png";
-    const {details, pageVIndex} = props
+    const { details, pageVIndex } = props;
     const [cursorIndex, setCursorIndex] = useState(0);
 
     return (
-        <div className="detail">
-            <h2 className="detail__name">
-                <TextTyper
-                    cursorIndex={cursorIndex}
-                    setCursorIndex={setCursorIndex}
-                    text={details.name}
-                    delay={pageVIndex === 0 ? 300 : 1500}
-                    speed={70}
-                    cursor={"\u2588"}
-                    textIndex={0}
-                    pageVIndex={pageVIndex}
-                    pageHIndex={1}
-                />
-            </h2>
-            <p className="detail__description">
+        <div className="info">
+            <p className="info__description">
                 <TextTyper
                     cursorIndex={cursorIndex}
                     setCursorIndex={setCursorIndex}
                     text={details.desc}
-                    textIndex={1}
+                    delay={pageVIndex === 0 ? 300 : 1500}
+                    textIndex={0}
                     pageVIndex={pageVIndex}
                     pageHIndex={1}
                 />
             </p>
-            <table className="detail__info">
+            <table className="info__table">
                 <thead>
                     <tr>
                         <th className="col_1">Technologies</th>
@@ -54,7 +42,7 @@ export default function Detail(props) {
                                         delay={300}
                                         speed={30}
                                         cursor={"\u2588"}
-                                        textIndex={2 + index}
+                                        textIndex={1 + index}
                                         pageVIndex={pageVIndex}
                                         pageHIndex={1}
                                     />
@@ -72,7 +60,7 @@ export default function Detail(props) {
                                         speed={30}
                                         cursor={"\u2588"}
                                         textIndex={
-                                            3 +
+                                            2 +
                                             details.technos.length +
                                             index -
                                             1
@@ -92,7 +80,7 @@ export default function Detail(props) {
                                 speed={30}
                                 cursor={"\u2588"}
                                 textIndex={
-                                    4 +
+                                    3 +
                                     details.technos.length +
                                     details.roles.length -
                                     2
@@ -104,15 +92,21 @@ export default function Detail(props) {
                     </tr>
                 </tbody>
             </table>
-            <div className="detail__links">
+            <footer className="info__links">
                 <a href={details.url} target="_blank" rel="noopener noreferrer">
-                    <button className="button button__green">visit website</button>
+                    visit website
                 </a>
-                {details.git && 
-                <a href={details.git} target="_blank" rel="noopener noreferrer">
-                    <img className="detail__git-logo" src={path + image} alt="github logo"/>
-                </a>}
-            </div>
+                <a
+                    className={`git-logo ${
+                        details.git ? "" : "git-logo--inactive"
+                    }`}
+                    href={details.git}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img src={path + image} alt="github logo" />
+                </a>
+            </footer>
         </div>
     );
 }

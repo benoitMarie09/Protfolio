@@ -4,6 +4,7 @@ import "./Cube.scss";
 
 export default function Cube(props) {
     // Status qui définit quand le cube est en rotation
+    const [autoRotation, setAutoRtation] = useState(true)
     const [onMotion, setOnMotion] = useState(false);
     const [rotation, setRotation] = useState({
         originX: 0,

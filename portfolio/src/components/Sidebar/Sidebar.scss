@@ -1,0 +1,56 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+
+.Sidebar {
+  position: absolute;
+  height: 100%;
+  width: 5%;
+  min-width: 30px;
+  max-width: 70px;
+  background-color: fade-out($primary-color, 0.85);
+  transition: opacity 1.4s ease, background-color 2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+  user-select: none;
+  cursor: pointer;
+  &__text {
+      color: lighten($primary-color, 40%);
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      transition: inherit;
+      opacity: 0;
+  }
+  &__arrow {
+      stroke: $primary-color;
+      stroke-width: 15;
+      position: absolute;
+      transition: inherit;
+      fill: fade-out($primary-color, 1);
+  }
+  &--right {
+      right: 0;
+      .Sidebar__arrow {
+          transform: rotate(180deg);
+      }
+  }
+  &--left {
+      .Sidebar__arrow {
+          order: -1;
+      }
+  }
+  &--hidden {
+      display: none;
+  }
+  &:hover {
+      background-color: fade-out($primary-color, 0.9);
+      & span {
+          opacity: 1;
+      }
+      .Sidebar__arrow {
+          opacity: 0;
+      }
+  }
+}

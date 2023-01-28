@@ -1,0 +1,40 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/animations" as *;
+
+.projects {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    &__navigation {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        z-index: 1000;
+        perspective: 170vw;
+        perspective-origin: 170% -60%;
+        .scene {
+            position: relative;
+            transform-style: preserve-3d;
+            .cube {
+                position: static;
+                transition: all 1s;
+                cursor: pointer;
+                &--active {
+                    transform: rotateY(180deg);
+                }
+                .cube__back {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

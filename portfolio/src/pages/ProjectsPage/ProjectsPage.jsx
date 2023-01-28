@@ -1,12 +1,10 @@
 import { useContext } from "react";
-import Cube from "../../components/Cube/Cube";
-import VSlide from "../../components/Slide/VSlide";
-import Detail from "../../components/Work_detail/Work_detail";
+import Project from "../../components/Project/Project";
 import { works } from "../../data/works";
 import { SlideContext } from "../../index";
-import "./Work.scss";
+import "./ProjectsPage.scss";
 
-export default function Work(props) {
+export default function ProjectsPage(props) {
     const { currentSlide, setCurrentSlide } = useContext(SlideContext);
     const slidesNb = works.getWorks().length;
     const cubeClick = (key) => {
@@ -14,30 +12,17 @@ export default function Work(props) {
     };
 
     return (
-        <>
-            {works.getWorks().map((worksItems, index) => (
-                <VSlide key={worksItems.key} index={index} slidesNb={slidesNb}>
-                    <div className="work">
-                        <div className="work__cube">
-                            <Cube
-                                images={worksItems.images}
-                                id={worksItems.key}
-                            />
-                        </div>
-                        <span className="v-separator sep-1"></span>
-                        <div className="icon-scroll"></div>
-                        <span className="v-separator sep-2"></span>
-                        <div className="work__detail">
-                            <Detail
-                                details={worksItems.details}
-                                pageVIndex={index}
-                            />
-                        </div>
-                    </div>
-                </VSlide>
+        <section className="projects">
+            {works.getWorks().map((projectsItems, index) => (
+                <Project
+                    key={projectsItems.key}
+                    projectItems={projectsItems}
+                    index={index}
+                    slidesNb={slidesNb}
+                />
             ))}
 
-            <nav className="projects_navigation">
+            <nav className="projects__navigation">
                 {works.getWorks().map((worksItems) => (
                     <div className="scene" key={worksItems.key}>
                         <div
@@ -61,6 +46,6 @@ export default function Work(props) {
                     </div>
                 ))}
             </nav>
-        </>
+        </section>
     );
 }

@@ -66,22 +66,19 @@
         background-color: fade-out($color: $primary-color, $amount: 0.5);
         bottom: 0%;
         z-index: 1000;
-        .button{
-          
-        }
     }
 }
 
 .about__info::-webkit-scrollbar {
-    width: 11px;
+  width: 11px;
 }
 .about__info {
-    scrollbar-width: thin;
-    scrollbar-color: $primary-color black;
+  scrollbar-width: thin;
+  scrollbar-color: $primary-color black;
 }
 .about__info::-webkit-scrollbar-track {
-    background: $primary-color;
+  background: $primary-color;
 }
 .about__info::-webkit-scrollbar-thumb {
-    background-color: black;
+  background-color: black;
 }

@@ -1,15 +1,10 @@
-@use "../../styles/variables" as *;
-@use "../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
 
 .layout {
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 40vh;
-    top:150px;
-
     perspective: 500vw;
     perspective-origin: -50% 0%;
     pointer-events: none;
@@ -28,7 +23,6 @@
         }
     }
     .scene {
-        position: relative;
         transform-style: preserve-3d;
         animation : rotate 30s infinite linear;
         @include breakpoint(md){
