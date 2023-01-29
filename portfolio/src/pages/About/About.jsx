@@ -51,7 +51,7 @@ const About = () => {
                         <TextTyper
                             cursorIndex={cursorIndex}
                             setCursorIndex={setCursorIndex}
-                            text={"développeur web"}
+                            text={"Développeur web"}
                             speed={70}
                             cursor={"\u2588"}
                             textIndex={2}
@@ -64,9 +64,7 @@ const About = () => {
                         <TextTyper
                             cursorIndex={cursorIndex}
                             setCursorIndex={setCursorIndex}
-                            text={
-                                "benoit.marie09@proton.me"
-                            }
+                            text={"benoit.marie09@proton.me"}
                             speed={70}
                             cursor={"\u2588"}
                             textIndex={3}

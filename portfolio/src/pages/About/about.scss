@@ -46,8 +46,10 @@
         transition: 0s;
         transition-delay: 0s;
         overflow-y: scroll;
-
         padding:0 10px;
+        & * {
+            padding: 5px 0;
+        }
         &--show {
             position: static;
             transition-delay: 4s;

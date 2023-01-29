@@ -7,14 +7,15 @@
     font-size: 0.9em;
     line-height: 0.9em;
     display: grid;
-    grid-template-rows: 30% 1fr 60px;
+    grid-template-rows: 1fr 80px 60px;
     @include breakpoint(md) {
         font-size: 1.2em;
         line-height: 1.2em;
         border-right: thick double $primary-color;
     }
     &__description {
-        padding: 40px;
+        display: flex;
+        align-items: center;
         @include breakpoint(md) {
             padding-top: 40%;
         }
@@ -22,11 +23,9 @@
     &__table {
         font-size: 0.8em;
         table-layout: fixed;
-        width: calc(100% - 40px);
-        max-width: 360px;
+        width: 100%;
         max-height: 100px;
-        margin: auto;
-        border: 1px solid $primary-color;
+        border: 2px solid $primary-color;
         td {
             border: 1px solid $primary-color;
             text-align: center;
