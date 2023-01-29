@@ -24,7 +24,6 @@ const About = () => {
                             cursorIndex={cursorIndex}
                             setCursorIndex={setCursorIndex}
                             text={"Marie"}
-                            delay={1500}
                             speed={70}
                             cursor={"\u2588"}
                             textIndex={0}
@@ -52,7 +51,6 @@ const About = () => {
                             cursorIndex={cursorIndex}
                             setCursorIndex={setCursorIndex}
                             text={"développeur web"}
-                            delay={300}
                             speed={70}
                             cursor={"\u2588"}
                             textIndex={2}
@@ -68,7 +66,6 @@ const About = () => {
                             text={
                                 "Passionné de mathématiques et d'informatique, j'ai développé mes compétences en programmation en utilisant Python, Javascript et C en développant des projets personnels tels qu'Arduino et Raspberry Pi, ainsi que des projets web en utilisant Django et React. Je suis enthousiaste à l'idée de poursuivre mon parcours en tant que développeur web en mettant en pratique mes compétences acquises et en continuant à apprendre."
                             }
-                            delay={300}
                             speed={70}
                             cursor={"\u2588"}
                             textIndex={3}
