@@ -19,7 +19,7 @@ const About = () => {
                     }`}
                 >
                     <p>
-                        <b>Nom</b> :{" "}
+                        <b>Nom :</b>{" "}
                         <TextTyper
                             cursorIndex={cursorIndex}
                             setCursorIndex={setCursorIndex}
@@ -33,7 +33,7 @@ const About = () => {
                         />
                     </p>
                     <p>
-                        <b>Prenom</b> :{" "}
+                        <b>Prenom :</b>{" "}
                         <TextTyper
                             cursorIndex={cursorIndex}
                             setCursorIndex={setCursorIndex}
@@ -47,7 +47,7 @@ const About = () => {
                         />
                     </p>
                     <p>
-                        <b>Profession</b> :{" "}
+                        <b>Profession :</b>{" "}
                         <TextTyper
                             cursorIndex={cursorIndex}
                             setCursorIndex={setCursorIndex}
@@ -60,7 +60,22 @@ const About = () => {
                         />
                     </p>
                     <p>
-                        <b>Informations</b> :{" "}
+                        <b>Adresse mail :</b>{" "}
+                        <TextTyper
+                            cursorIndex={cursorIndex}
+                            setCursorIndex={setCursorIndex}
+                            text={
+                                "benoit.marie09@proton.me"
+                            }
+                            speed={70}
+                            cursor={"\u2588"}
+                            textIndex={3}
+                            pageVIndex={0}
+                            pageHIndex={2}
+                        />
+                    </p>
+                    <p>
+                        <b>Informations :</b>{" "}
                         <TextTyper
                             cursorIndex={cursorIndex}
                             setCursorIndex={setCursorIndex}
@@ -69,7 +84,7 @@ const About = () => {
                             }
                             speed={70}
                             cursor={"\u2588"}
-                            textIndex={3}
+                            textIndex={4}
                             pageVIndex={0}
                             pageHIndex={2}
                         />
@@ -80,13 +95,13 @@ const About = () => {
                         className={`${showSVG && "active"}`}
                         onClick={() => setShowSVG(true)}
                     >
-                        Vectorisation
+                        Photo
                     </button>
                     <button
                         className={`${!showSVG && "active"}`}
                         onClick={() => setShowSVG(false)}
                     >
-                        Informations
+                        Info
                     </button>
                 </footer>
             </div>

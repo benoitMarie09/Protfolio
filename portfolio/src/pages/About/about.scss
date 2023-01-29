@@ -41,6 +41,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        z-index: 0;
     }
     &__info {
         flex-grow: 1;
@@ -52,10 +53,12 @@
             position: static;
             transition-delay: 4s;
             opacity: 1;
+            z-index: 900;
         }
     }
     b {
-        text-decoration: underline;
+        background-color: $primary-color;
+        color: black;
     }
     .buttons {
         width: 100%;
@@ -71,6 +74,7 @@
             font-size: 1.2em;
             background-color: fade-out($color: $primary-color, $amount: 0.5);
             cursor: pointer;
+            z-index: 1000;
             &:hover {
                 background-color: fade-out(
                     $color: $primary-color,

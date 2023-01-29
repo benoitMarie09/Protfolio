@@ -1,21 +1,23 @@
 @use "./mixins" as *;
 @use "./variables" as *;
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
 /* Reset */
 * {
-  box-sizing: border-box;
-  outline: none;
-  margin: 0;
-  padding: 0;
-  color: rgb(29, 138, 7);
-  font-family: 'Ubuntu Mono', monospace;
-
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    color: rgb(29, 138, 7);
+    font-family: "Ubuntu Mono", monospace;
 }
-
+html {
+    height: strecth;
+}
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 a:link {
-  text-decoration: none;
+    text-decoration: none;
 }

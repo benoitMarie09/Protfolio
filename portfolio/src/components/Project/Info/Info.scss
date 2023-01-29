@@ -14,7 +14,7 @@
         border-right: thick double $primary-color;
     }
     &__description {
-        padding: 10px;
+        padding: 40px;
         @include breakpoint(md) {
             padding-top: 40%;
         }
