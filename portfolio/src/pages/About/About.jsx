@@ -66,7 +66,7 @@ const About = () => {
                             cursorIndex={cursorIndex}
                             setCursorIndex={setCursorIndex}
                             text={
-                                "Passionné de maths et d'informatiques, j'ai appris à programmer dans plusieurs langages (python, javascript, c) en développant des projets personnels (arduino, raspberry pi ) ainsi que des projets web en django et React."
+                                "Passionné de mathématiques et d'informatique, j'ai développé mes compétences en programmation en utilisant Python, Javascript et C en développant des projets personnels tels qu'Arduino et Raspberry Pi, ainsi que des projets web en utilisant Django et React. Je suis enthousiaste à l'idée de poursuivre mon parcours en tant que développeur web en mettant en pratique mes compétences acquises et en continuant à apprendre."
                             }
                             delay={300}
                             speed={70}
@@ -77,18 +77,18 @@ const About = () => {
                         />
                     </p>
                 </div>
-                <footer>
+                <footer className="buttons">
                     <button
-                        className="button button__classic"
+                        className={`${showSVG && "active"}`}
                         onClick={() => setShowSVG(true)}
                     >
-                        voir image
+                        Vectorisation
                     </button>
                     <button
-                        className="button button__classic"
+                        className={`${!showSVG && "active"}`}
                         onClick={() => setShowSVG(false)}
                     >
-                        cacher image
+                        Informations
                     </button>
                 </footer>
             </div>

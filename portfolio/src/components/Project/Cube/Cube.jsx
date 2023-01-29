@@ -4,7 +4,7 @@ import "./Cube.scss";
 
 export default function Cube(props) {
     // Status qui définit quand le cube est en rotation
-    const [autoRotation, setAutoRtation] = useState(true)
+    const [autoRotation, setAutoRtation] = useState(true);
     const [onMotion, setOnMotion] = useState(false);
     const [rotation, setRotation] = useState({
         originX: 0,
@@ -20,6 +20,13 @@ export default function Cube(props) {
         mouseX: 0,
         mouseY: 0
     });
+
+    const autoRotationOn = () => {
+        setAutoRtation(true);
+    };
+    const autoRotationOff = () => {
+        setAutoRtation(false);
+    };
 
     const handleMouseDown = (event) => {
         //Fonction qui enregistre la position de la souris quand on clique gauche
@@ -187,7 +194,14 @@ export default function Cube(props) {
                 onMouseUp={(e) => handleMouseUp(e)}
                 onMouseOut={(e) => handleMouseUp(e)}
             >
-                <div className="scene" id={`scene${props.id}`}>
+                <div
+                    className={`scene ${
+                        autoRotation || window.innerWidth < 768
+                            ? "scene--autoRotation"
+                            : ""
+                    }`}
+                    id={`scene${props.id}`}
+                >
                     <div className="cube cube--flexible cube--green">
                         <div className="cube__front">
                             <img
@@ -234,6 +248,10 @@ export default function Cube(props) {
                     </div>
                 </div>
             </div>
+            <footer className="buttons">
+                <button className={`${autoRotation && "active"}`} onClick={autoRotationOn}>rotation auto</button>
+                <button className={`${!autoRotation && "active"}`} onClick={autoRotationOff}> rotation manuelle</button>
+            </footer>
         </>
     );
 }

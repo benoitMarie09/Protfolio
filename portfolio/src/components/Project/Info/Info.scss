@@ -42,13 +42,19 @@
             width: 50%;
             height: 50px;
             background-color: fade-out($color: $primary-color, $amount: 0.5);
+            &:hover {
+                background-color: fade-out(
+                    $color: $primary-color,
+                    $amount: 0.2
+                );
+            }
         }
         .git-logo {
             img {
                 height: 40px;
             }
             &--inactive {
-                background-color: rgba(128, 128, 128, 0.322);
+                background-color: rgba(128, 128, 128, 0.11);
                 pointer-events: none;
             }
         }
