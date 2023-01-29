@@ -5,7 +5,7 @@
 .projects {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: grid;
     grid-template-rows: 1fr auto;
     &__navigation {
@@ -25,7 +25,7 @@
             .cube {
                 position: static;
                 transition: all 1s;
-                cursor: pointer;
+                cursor: url(../../../public/images/cursors-pointer.png),pointer;
                 &--active {
                     transform: rotateY(180deg);
                 }

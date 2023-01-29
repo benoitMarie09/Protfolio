@@ -7,16 +7,19 @@
     font-size: 0.9em;
     line-height: 0.9em;
     display: grid;
-    grid-template-rows: 1fr 80px 60px;
+    grid-template-rows: 1fr 100px 60px;
     @include breakpoint(md) {
         font-size: 1.2em;
         line-height: 1.2em;
         border-right: thick double $primary-color;
     }
     &__description {
+        padding: 0 20px;
         display: flex;
         align-items: center;
         @include breakpoint(md) {
+            line-height: 1.5em;
+            font-size: 1.4em;
             padding-top: 40%;
         }
     }
@@ -24,7 +27,7 @@
         font-size: 0.8em;
         table-layout: fixed;
         width: 100%;
-        max-height: 100px;
+        max-height: 120px;
         border: 2px solid $primary-color;
         td {
             border: 1px solid $primary-color;
@@ -41,8 +44,9 @@
             justify-content: center;
             color: black;
             width: 50%;
-            height: 50px;
+            height: 100%;
             background-color: fade-out($color: $primary-color, $amount: 0.5);
+            cursor:url(../../../../public/images/cursors-pointer.png),pointer;
             &:hover {
                 background-color: fade-out(
                     $color: $primary-color,

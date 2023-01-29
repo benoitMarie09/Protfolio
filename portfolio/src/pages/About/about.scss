@@ -46,7 +46,7 @@
         transition: 0s;
         transition-delay: 0s;
         overflow-y: scroll;
-        padding:0 10px;
+        padding: 0 10px;
         & * {
             padding: 5px 0;
         }
@@ -75,7 +75,7 @@
             color: black;
             font-size: 1.2em;
             background-color: fade-out($color: $primary-color, $amount: 0.5);
-            cursor: pointer;
+            cursor: url(../../../public/images/cursors-pointer.png), pointer;
             z-index: 1000;
             &:hover {
                 background-color: fade-out(

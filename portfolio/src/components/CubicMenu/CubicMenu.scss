@@ -5,7 +5,7 @@
 .nav {
     position: absolute;
     width: 100vw;
-    height: 0vh;
+    height: 0;
     padding: 10px;
     padding-right: max(calc(5% + 10px),80px);
     padding-top: 30px;
@@ -26,7 +26,7 @@
         pointer-events: auto;
         &:hover{
             transition: box-shadow 0.8s cubic-bezier(.37,-0.9,.51,2), transform 1s cubic-bezier(.37,-0.9,.51,1.81);
-            cursor: pointer;
+            cursor: url(../../../public/images/cursors-pointer.png),pointer;
             border: 2px;
             box-shadow: 0 10px 18px $primary-color inset, 0 0 10px $primary-color;
             .x{

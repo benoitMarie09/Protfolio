@@ -188,7 +188,9 @@ export default function Cube(props) {
     return (
         <>
             <div
-                className={`layout ${onMotion ? "layout--onMotion" : ""}`}
+                className={`layout ${onMotion ? "layout--grab--onMotion" : ""} ${
+                    !autoRotation ? "layout--grab" : ""
+                }`}
                 onMouseDown={(e) => handleMouseDown(e)}
                 onMouseMove={(e) => handleMouseMove(e)}
                 onMouseUp={(e) => handleMouseUp(e)}
@@ -249,8 +251,19 @@ export default function Cube(props) {
                 </div>
             </div>
             <footer className="buttons">
-                <button className={`${autoRotation && "active"}`} onClick={autoRotationOn}>rotation auto</button>
-                <button className={`${!autoRotation && "active"}`} onClick={autoRotationOff}> rotation manuelle</button>
+                <button
+                    className={`${autoRotation && "active"}`}
+                    onClick={autoRotationOn}
+                >
+                    rotation auto
+                </button>
+                <button
+                    className={`${!autoRotation && "active"}`}
+                    onClick={autoRotationOff}
+                >
+                    {" "}
+                    rotation manuelle
+                </button>
             </footer>
         </>
     );

@@ -6,12 +6,13 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   overflow: hidden;
   transform: translateY(0);
   transition: 1000ms cubic-bezier(.78,-0.36,.15,1.30);
   transition-delay: 500ms;
+  cursor: url(../../../public/images/cursors-wheel.png),crosshair;
 
   &--up {
     transform: translateY(-100%);

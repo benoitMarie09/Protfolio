@@ -4,7 +4,7 @@ export const works = {
             key: 1,
             details: {
                 name: "Portfolio C. Lamy",
-                desc: "Portfolio pour l'artiste peintre illustratrice Coline Lamy, avec galleries, diaporama, et une partie admin",
+                desc: "Portfolio pour l'artiste peintre illustratrice Coline Lamy, avec galeries, diaporamas, et une partie admin.",
                 technos: ["Django"],
                 roles: ["front-end", "back-end"],
                 year: 2022,
@@ -44,7 +44,7 @@ export const works = {
             key: 3,
             details: {
                 name: "ToneSide(en construction)",
-                desc: "Portfolio pour le l'artiste compositeur ToneSide",
+                desc: "Portfolio pour le l'artiste compositeur ToneSide.",
                 technos: ["React"],
                 roles: ["front-end"],
                 year: 2022,

@@ -3,9 +3,8 @@ import TextTyper from "../TextTyper/TextTyper";
 import "./Logo.scss";
 
 export default function Logo() {
-
     return (
-        <div className="main">
+        <div className="accueil">
             <svg
                 className="logo"
                 width="240"
@@ -36,7 +35,7 @@ export default function Logo() {
                     text={"Web developper"}
                     ready={true}
                     delay={4000}
-                    speed ={200}
+                    speed={200}
                     cursor={"\u2588"}
                     pageHIndex={0}
                     pageVIndex={0}

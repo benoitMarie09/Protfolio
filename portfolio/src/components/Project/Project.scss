@@ -3,19 +3,19 @@
 
 .project {
     width: 85vw;
-    height: 80vh;
-    margin: 7.5vh 7.5vw;
+    height: 80%;
+    margin: 70px 7.5vw;
     display: grid;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: 70px 1fr 1fr;
     grid-template-columns: 100%;
     overflow: hidden;
     border: thick double $primary-color;
     @include breakpoint(md) {
-        grid-template-rows: 5vh 1fr;
+        grid-template-rows: 70px 1fr;
         grid-template-columns: min(400px, 50%) auto;
     }
     &__title {
-        height: 5vh;
+        height: 100%;
         background-color: fade-out($color: $primary-color, $amount: 0.5);
         border-bottom: thick double $primary-color;
         display: flex;
@@ -31,13 +31,13 @@
         }
     }
     &__cube {
-        height: 35vh;
+        height: 100%;
         @include breakpoint(md) {
             grid-column-start: 2;
             grid-column-end: 3;
             grid-row-start: 2;
             grid-row-end: 3;
-            height: 75vh;
+            height: 100%;
         }
         .layout {
             width: 100%;
@@ -58,14 +58,14 @@
         }
     }
     &__info {
-        height: 40vh;
+        height: 100%;
         overflow-y: scroll;
         @include breakpoint(md) {
             grid-column-start: 1;
             grid-column-end: 2;
             grid-row-start: 2;
             grid-row-end: 3;
-            height: 75vh;
+            height: 100%;
             overflow-y: hidden;
         }
         &::-webkit-scrollbar {
