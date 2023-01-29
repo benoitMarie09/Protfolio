@@ -24,6 +24,7 @@ const About = () => {
                             cursorIndex={cursorIndex}
                             setCursorIndex={setCursorIndex}
                             text={"Marie"}
+                            delay={1000}
                             speed={70}
                             cursor={"\u2588"}
                             textIndex={0}
