@@ -17,7 +17,7 @@
     &__title {
         height: 5vh;
         background-color: fade-out($color: $primary-color, $amount: 0.5);
-        border-bottom:thick double $primary-color;
+        border-bottom: thick double $primary-color;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -26,8 +26,8 @@
             grid-column-start: 1;
             grid-column-end: 3;
         }
-        h2{
-          color : black;
+        h2 {
+            color: black;
         }
     }
     &__cube {

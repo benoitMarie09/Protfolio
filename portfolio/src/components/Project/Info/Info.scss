@@ -4,11 +4,13 @@
 .info {
     width: 100%;
     height: inherit;
-    font-size: 1.2em;
-    line-height: 1.2em;
+    font-size: 0.9em;
+    line-height: 0.9em;
     display: grid;
     grid-template-rows: 30% 1fr 60px;
     @include breakpoint(md) {
+        font-size: 1.2em;
+        line-height: 1.2em;
         border-right: thick double $primary-color;
     }
     &__description {
