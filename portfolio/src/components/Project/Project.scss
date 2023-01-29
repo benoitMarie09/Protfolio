@@ -45,6 +45,7 @@
             position: static;
             .scene {
                 position: relative;
+                top: 20%;
                 @include breakpoint(md) {
                     top: -10%;
                     left: 5%;
