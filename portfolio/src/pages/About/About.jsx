@@ -3,11 +3,18 @@ import ProfileSVG from "../../components/ProfileSVG/ProfileSVG";
 import TextTyper from "../../components/TextTyper/TextTyper";
 import { useState } from "react";
 
-const About = () => {
+
+/**
+ * About page to present myself
+ * @returns A container buttons to switch between photo and profile info
+ */
+export default function About(){
+    /* State to track the typing cursor place */
     const [cursorIndex, setCursorIndex] = useState(0);
+    /* State to track if we see the photo or the text */
     const [showSVG, setShowSVG] = useState(false);
     return (
-        <div className="about">
+        <section className="about">
             <div className="about__container">
                 <header>
                     <h2>-- Profile --</h2>
@@ -103,8 +110,8 @@ const About = () => {
                     </button>
                 </footer>
             </div>
-        </div>
+        </section>
     );
 };
 
-export default About;
+

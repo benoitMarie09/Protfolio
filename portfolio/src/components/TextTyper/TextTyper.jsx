@@ -4,8 +4,24 @@ import { SlideContext } from "../../index";
 
 
 
-
+/**
+ * Compotent to simulate typing text
+ * @param {*} props {
+ *      pageHIndex => number
+        pageVIndex => number
+        text => string
+        textIndex => number
+        cursorIndex => number
+        ready => booléen
+        delay => number 
+        speed => number
+        cursor => char
+        setCursorIndex => function
+    }
+ * @returns a span with a text typing ended by a cursor
+ */
 export default function TextTyper(props) {
+    /* context state to track current slide (horizontal and vertical) */
     const currentSlide= useContext(SlideContext).currentSlide;
     const {
         pageHIndex,
@@ -19,14 +35,16 @@ export default function TextTyper(props) {
         cursor, 
         setCursorIndex, 
     } = props
+    /* State to track the text that has been typed */
     const [curText, setCurText] = useState("");
+    /* Sate to track i_f a text is done typing */
     const [isDone, setDone] = useState(false);
-
-    // console.log("I:",cursorIndex)
-    // console.log("V:",pageVIndex)
-    
     
     useEffect(() => {
+        /**
+         * iterative function that yield a text letter by letter
+         * @param {string} text 
+         */
         function* itertext(text) {
             let rest = String(text).split("");
             let result = "";
@@ -38,19 +56,20 @@ export default function TextTyper(props) {
         let done = false;
         let letter = "";
         let i = 0;
-        while (
+        while (// text start typing if it's not finished and we are on the right slide (horizontal or vertical)
             !isDone && ((!done &&
             cursorIndex === textIndex &&
-            currentSlide.v === pageVIndex &&
-            currentSlide.h === pageHIndex))
+            ((currentSlide.v === pageVIndex && currentSlide.h === 1 && currentSlide.h === pageHIndex) || 
+            currentSlide.h == pageHIndex && currentSlide.h !== 1)
+            ))
         ) {
             const currentLetter = counter.next();
             letter = currentLetter.value;
             done = currentLetter.done;
             if (!done) {
+                // add letter to curtext at an increasing time for each consecutive letters
                 setTimeout(
                     (val) => {
-                        //console.log(val);
                         setCurText(val);
                     },
                     speed * i + delay,
@@ -58,6 +77,7 @@ export default function TextTyper(props) {
                 );
             } else {
                 setDone(true)
+                // when the text is done we pass the cursor to the next text
                 if(cursorIndex!== undefined){
                     setTimeout(() => {
                         setCursorIndex(cursorIndex + 1);

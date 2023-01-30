@@ -1,12 +1,17 @@
 import "./Home.scss";
 import Logo from "../../components/Logo/Logo"
 
+
+/**
+ * Home page
+ * @returns A section with a centred logo
+ */
 export default function Home() {
 
   return (
-    <div className="Home">
+    <section className="Home">
       <Logo></Logo>
-    </div>
+    </section>
   );
 }
 

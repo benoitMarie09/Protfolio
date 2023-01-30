@@ -8,7 +8,13 @@ import About from "./pages/About/About";
 import HSlide from "./components/Slide/HSlide";
 import "./App.scss";
 
+/**
+ * @returns 3 Horizontals slides Home, Projects, About and right and left sidebars.
+ */
 export default function App() {
+    /**
+     * function to stop css trasition during the window rezize
+     */
     function handleResize() {
         let resizeTimer;
         document.body.classList.add("resize-transition-stopper");

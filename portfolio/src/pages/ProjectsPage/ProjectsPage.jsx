@@ -4,9 +4,20 @@ import { works } from "../../data/works";
 import { SlideContext } from "../../index";
 import "./ProjectsPage.scss";
 
-export default function ProjectsPage(props) {
+
+/**
+ * Component to present a web site project
+ * @returns Project page that present a website with an info section and a cube section with images of the site and a small cube to navigate each project
+ */
+export default function ProjectsPage() {
+    /* context state to track current slide (horizontal and vertical) */
     const { currentSlide, setCurrentSlide } = useContext(SlideContext);
+    /* State to track the total number of verticals slides */
     const slidesNb = works.getWorks().length;
+    /**
+     * function to handle projects navigations links with smalls cubes
+     * @param {number} key 
+     */
     const cubeClick = (key) => {
         setCurrentSlide({ ...currentSlide, v: key - 1 });
     };
