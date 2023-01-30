@@ -3,10 +3,17 @@ import "../../TextTyper/TextTyper";
 import TextTyper from "../../TextTyper/TextTyper";
 import "./Info.scss";
 
+/**
+ * @param {*} props {
+ * details => object {desc: string, technos: array[string], role: array[string], year: string, url: string, git: string }
+ * pageVIndex => number}
+ * @returns All information of a website project in TextTyper, website link and github link
+ */
 export default function Info(props) {
     var path = process.env.PUBLIC_URL;
     var image = "/images/github_icon.png";
     const { details, pageVIndex } = props;
+    /* State to track the typing text cursor place */
     const [cursorIndex, setCursorIndex] = useState(0);
 
     return (

@@ -1,5 +1,5 @@
-export const works = {
-    worksItems: [
+const projects = {
+    projectsItems: [
         {
             key: 1,
             details: {
@@ -61,5 +61,7 @@ export const works = {
             ]
         }
     ],
-    getWorks: () => works.worksItems
+    getProjects: () => projects.projectsItems
 };
+
+export default projects;

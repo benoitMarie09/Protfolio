@@ -2,9 +2,12 @@ import React from "react";
 import TextTyper from "../TextTyper/TextTyper";
 import "./Logo.scss";
 
+/**
+ * @returns A section with a SVG logo animated in css and a textTyper
+ */
 export default function Logo() {
     return (
-        <div className="accueil">
+        <section className="accueil">
             <svg
                 className="logo"
                 width="240"
@@ -41,6 +44,6 @@ export default function Logo() {
                     pageVIndex={0}
                 />
             </p>
-        </div>
+        </section>
     );
 }

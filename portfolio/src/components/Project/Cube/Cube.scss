@@ -1,5 +1,6 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixins" as *;
+@use "../../../styles/animations" as *;
 
 .layout {
     display: flex;
@@ -55,13 +56,5 @@
         &.active {
             background-color: fade-out($color: $primary-color, $amount: 0.2);
         }
-    }
-}
-@keyframes rotate {
-    0% {
-        transform: rotateX(0deg) rotateY(0) rotateZ(0deg);
-    }
-    100% {
-        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
     }
 }

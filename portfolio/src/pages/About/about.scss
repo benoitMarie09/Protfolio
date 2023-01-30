@@ -56,6 +56,19 @@
             opacity: 1;
             z-index: 900;
         }
+        &__info::-webkit-scrollbar {
+            width: 11px;
+        }
+        &__info {
+            scrollbar-width: thin;
+            scrollbar-color: $primary-color black;
+        }
+        &__info::-webkit-scrollbar-track {
+            background: $primary-color;
+        }
+        &__info::-webkit-scrollbar-thumb {
+            background-color: black;
+        }
     }
     b {
         background-color: $primary-color;
@@ -91,18 +104,4 @@
             }
         }
     }
-}
-
-.about__info::-webkit-scrollbar {
-    width: 11px;
-}
-.about__info {
-    scrollbar-width: thin;
-    scrollbar-color: $primary-color black;
-}
-.about__info::-webkit-scrollbar-track {
-    background: $primary-color;
-}
-.about__info::-webkit-scrollbar-thumb {
-    background-color: black;
 }

@@ -1,6 +1,7 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
+/* Text typing cursor */
 .cursor {
     visibility: visible;
     font-size: 0.8em;

@@ -1,39 +1,52 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
-@use"../../styles/animations" as *;
+@use "../../styles/animations" as *;
 
 .nav {
     position: absolute;
     width: 100vw;
     height: 0;
     padding: 10px;
-    padding-right: max(calc(5% + 10px),80px);
+    padding-right: max(calc(5% + 10px), 80px);
     padding-top: 30px;
     display: flex;
     justify-content: flex-end;
-    perspective:170vw;
+    perspective: 170vw;
     perspective-origin: 170% -60%;
     z-index: 200;
-
+    &--menu {
+        .cube--menu {
+            transform: rotateY(180deg);
+            transition: all 1s cubic-bezier(0.37, -0.9, 0.51, 1.81);
+        }
+    }
     .scene {
         position: relative;
         transform-style: preserve-3d;
     }
 
     &__cube {
-        transition: all 1s cubic-bezier(.37,-0.9,.51,1.81);
+        transition: all 1s cubic-bezier(0.37, -0.9, 0.51, 1.81);
         z-index: 1000;
         pointer-events: auto;
-        &:hover{
-            transition: box-shadow 0.8s cubic-bezier(.37,-0.9,.51,2), transform 1s cubic-bezier(.37,-0.9,.51,1.81);
-            cursor: url(../../../public/images/cursors-pointer.png),pointer;
+        .x {
+            display: inline;
+            fill: rgb(29, 138, 7);
+            stroke-width: 1px;
+            stroke: rgb(29, 138, 7);
+        }
+        &:hover {
+            transition: box-shadow 0.8s cubic-bezier(0.37, -0.9, 0.51, 2),
+                transform 1s cubic-bezier(0.37, -0.9, 0.51, 1.81);
+            cursor: url(../../../public/images/cursors-pointer.png), pointer;
             border: 2px;
-            box-shadow: 0 10px 18px $primary-color inset, 0 0 10px $primary-color;
-            .x{
+            box-shadow: 0 10px 18px $primary-color inset,
+                0 0 10px $primary-color;
+            .x {
                 display: inline;
-                fill: lighten($primary-color,40%);
+                fill: lighten($primary-color, 40%);
                 stroke-width: 1px;
-                stroke: lighten($primary-color,40%);
+                stroke: lighten($primary-color, 40%);
             }
         }
     }
@@ -52,7 +65,7 @@
             black,
             rgb(17, 17, 17),
             black 4px
-          );
+        );
         opacity: 0;
         visibility: hidden;
         transition: all 1s;
@@ -66,16 +79,15 @@
             align-items: center;
             animation: scale-out 0.5s both ease;
             & > li {
-                
                 a {
                     display: block;
                     line-height: 25px;
                     padding: 1rem;
                     color: $primary-color;
                     font-size: $font-size;
+                    transition:all 0.1s ease-in-out;
                     &:hover {
-                        padding-left: 2rem;
-                        letter-spacing: 5px;
+                        letter-spacing: 3px;
                     }
                 }
                 & > .active {
@@ -92,18 +104,4 @@
             }
         }
     }
-
-}
-.nav--menu{
-    .cube--menu{
-        transform:rotateY(180deg);
-        transition: all 1s cubic-bezier(.37,-0.9,.51,1.81);
-    }
-}
-
-.x{
-    display: inline;
-    fill: rgb(29, 138, 7);
-    stroke-width: 1px;
-    stroke: rgb(29, 138, 7);
 }

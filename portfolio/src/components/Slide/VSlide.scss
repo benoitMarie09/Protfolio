@@ -1,26 +1,24 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
-
 .Vslide {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  transform: translateY(0);
-  transition: 1000ms cubic-bezier(.78,-0.36,.15,1.30);
-  transition-delay: 500ms;
-  cursor: url(../../../public/images/cursors-wheel.png),crosshair;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: 1000ms cubic-bezier(0.78, -0.36, 0.15, 1.3);
+    transition-delay: 500ms;
+    cursor: url(../../../public/images/cursors-wheel.png), crosshair;
 
-  &--up {
-    transform: translateY(-100%);
-    transition: 1300ms cubic-bezier(.78,-0.36,.23,1.34);
-  }
-  &--down {
-    transform: translateY(100%);
-    transition: 1300ms cubic-bezier(.78,-0.36,.23,1.34);
-  }
-
+    &--up {
+        transform: translateY(-100%);
+        transition: 1300ms cubic-bezier(0.78, -0.36, 0.23, 1.34);
+    }
+    &--down {
+        transform: translateY(100%);
+        transition: 1300ms cubic-bezier(0.78, -0.36, 0.23, 1.34);
+    }
 }

@@ -1,120 +1,114 @@
 @use "./variables" as *;
 
 @mixin face-setup($angle, $size: $size, $color: $cube_face-color) {
-  transform: rotateY($angle) translateZ($size);
-  background-color: $cube_face-color;
-  position: absolute;
-  width: 100%;
-  height: 100%;
+    transform: rotateY($angle) translateZ($size);
+    background-color: $cube_face-color;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 @mixin cube-setup($size) {
-  position: absolute;
-  width: calc(2 * $size);
-  height: calc(2 * $size);
-  top: calc(-1 * $size);
-  left: calc(-1 * $size);
-  transform-style: preserve-3d;
-
-  .cube__front {
-    @include face-setup(0deg, $size);
-  }
-  .cube__right {
-    @include face-setup(90deg, $size);
-  }
-  .cube__back {
-    @include face-setup(180deg, $size);
-  }
-  .cube__left {
-    @include face-setup(270deg, $size);
-  }
-
-  .cube__top {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    transform: translateY(-50%) rotateX(90deg);
-    background-color: $cube_face-color;
-  }
-  .cube__bottom {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transform: translateY(50%) rotateX(270deg);
-    background-color: $cube_face-color;
-  }
+    width: calc(2 * $size);
+    height: calc(2 * $size);
+    top: calc(-1 * $size);
+    left: calc(-1 * $size);
+    transform-style: preserve-3d;
+
+    .cube__front {
+        @include face-setup(0deg, $size);
+    }
+    .cube__right {
+        @include face-setup(90deg, $size);
+    }
+    .cube__back {
+        @include face-setup(180deg, $size);
+    }
+    .cube__left {
+        @include face-setup(270deg, $size);
+    }
+
+    .cube__top {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-50%) rotateX(90deg);
+        background-color: $cube_face-color;
+    }
+    .cube__bottom {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform: translateY(50%) rotateX(270deg);
+        background-color: $cube_face-color;
+    }
 }
 
 @mixin cube-open($size) {
-  .cube__front {
-    transition: all 1s;
-    @include face-setup(0deg, $size);
-  }
-  .cube__right {
-    transition: all 1s;
-    @include face-setup(90deg, $size);
-  }
-  .cube__back {
-    transition: all 1s;
-    @include face-setup(180deg, $size);
-  }
-  .cube__left {
-    transition: all 1s;
-    @include face-setup(270deg, $size);
-  }
+    .cube__front {
+        transition: all 1s;
+        @include face-setup(0deg, $size);
+    }
+    .cube__right {
+        transition: all 1s;
+        @include face-setup(90deg, $size);
+    }
+    .cube__back {
+        transition: all 1s;
+        @include face-setup(180deg, $size);
+    }
+    .cube__left {
+        transition: all 1s;
+        @include face-setup(270deg, $size);
+    }
 
-  .cube__top {
-    transition: all 1s;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform: translateY(-70%) rotateX(95deg);
-    background-color: $cube_face-color;
-  }
-  .cube__bottom {
-    transition: all 1s;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transform: translateY(70%) rotateX(275deg);
-    background-color: $cube_face-color;
-  }
+    .cube__top {
+        transition: all 1s;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-70%) rotateX(95deg);
+        background-color: $cube_face-color;
+    }
+    .cube__bottom {
+        transition: all 1s;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform: translateY(70%) rotateX(275deg);
+        background-color: $cube_face-color;
+    }
 }
 
 @mixin breakpoint($breakpoint, $direction: min) {
-    
-  //check if the supplied breakpoint exists in our breakpoits map
-  @if map-has-key($breakpoints, $breakpoint) { 
-      $breakpoint-values: map-get($breakpoints, $breakpoint);
-      $breakpoint-min: map-get($breakpoint-values, min);
-      $breakpoint-max: map-get($breakpoint-values, max);
+    //check if the supplied breakpoint exists in our breakpoits map
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-values: map-get($breakpoints, $breakpoint);
+        $breakpoint-min: map-get($breakpoint-values, min);
+        $breakpoint-max: map-get($breakpoint-values, max);
 
-      //check if we are writing styles for larger or smaller screens
-      @if $direction == min {
-          @media (min-width: $breakpoint-min) {
-              @content;
-          }
-      }
+        //check if we are writing styles for larger or smaller screens
+        @if $direction == min {
+            @media (min-width: $breakpoint-min) {
+                @content;
+            }
+        } @else {
+            @media (max-width: $breakpoint-max) {
+                @content;
+            }
+        }
 
-      @else {
-          @media (max-width: $breakpoint-max) {
-              @content;
-          }
-      }
-  
-  // use the custom value if the breakpoint is not part of the pre-defined list
-  } @else {
-      
-      @if $direction == min {
-          @media (min-width: $breakpoint) {
-              @content;
-          }
-      }
-
-      @else {
-          @media (max-width: $breakpoint) {
-              @content;
-          }
-      }
-  }
+        // use the custom value if the breakpoint is not part of the pre-defined list
+    } @else {
+        @if $direction == min {
+            @media (min-width: $breakpoint) {
+                @content;
+            }
+        } @else {
+            @media (max-width: $breakpoint) {
+                @content;
+            }
+        }
+    }
 }

@@ -17,6 +17,7 @@
         padding: 0 20px;
         display: flex;
         align-items: center;
+        justify-content: center;
         @include breakpoint(md) {
             align-items: flex-start;
             line-height: 1.5em;
@@ -47,7 +48,7 @@
             width: 50%;
             height: 100%;
             background-color: fade-out($color: $primary-color, $amount: 0.5);
-            cursor:url(../../../../public/images/cursors-pointer.png),pointer;
+            cursor: url(../../../../public/images/cursors-pointer.png), pointer;
             &:hover {
                 background-color: fade-out(
                     $color: $primary-color,

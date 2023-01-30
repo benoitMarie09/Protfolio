@@ -12,32 +12,23 @@
     height: 100%;
     width: 100vw;
     position: absolute;
-    z-index: 100;
     overflow: hidden;
     transform: translateY(0);
     transition: 1000ms cubic-bezier(0, 0.83, 0.72, 1.05);
     transition-delay: 500ms;
 
     &--rigth {
-        z-index: 99;
         transform: translateX(100%);
         transition: 1300ms cubic-bezier(0.59, -0.01, 0.17, 1.14);
         .Sidebar {
             opacity: 0;
         }
-        & * {
-            z-index: 99;
-        }
     }
     &--left {
-        z-index: 99;
         transform: translateX(-100%);
         transition: 1300ms cubic-bezier(0.59, -0.01, 0.17, 1.14);
         .Sidebar {
             opacity: 0;
-        }
-        & * {
-            z-index: 99;
         }
     }
 }

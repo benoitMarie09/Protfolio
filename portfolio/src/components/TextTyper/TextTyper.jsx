@@ -2,8 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import "./TextTyper.scss";
 import { SlideContext } from "../../index";
 
-
-
 /**
  * Compotent to simulate typing text
  * @param {*} props {
@@ -22,28 +20,28 @@ import { SlideContext } from "../../index";
  */
 export default function TextTyper(props) {
     /* context state to track current slide (horizontal and vertical) */
-    const currentSlide= useContext(SlideContext).currentSlide;
+    const currentSlide = useContext(SlideContext).currentSlide;
     const {
         pageHIndex,
         pageVIndex,
-        text, 
-        textIndex, 
-        cursorIndex, 
-        ready, 
-        delay, 
-        speed, 
-        cursor, 
-        setCursorIndex, 
-    } = props
+        text,
+        textIndex,
+        cursorIndex,
+        ready,
+        delay,
+        speed,
+        cursor,
+        setCursorIndex
+    } = props;
     /* State to track the text that has been typed */
     const [curText, setCurText] = useState("");
     /* Sate to track i_f a text is done typing */
     const [isDone, setDone] = useState(false);
-    
+
     useEffect(() => {
         /**
          * iterative function that yield a text letter by letter
-         * @param {string} text 
+         * @param {string} text
          */
         function* itertext(text) {
             let rest = String(text).split("");
@@ -56,12 +54,15 @@ export default function TextTyper(props) {
         let done = false;
         let letter = "";
         let i = 0;
-        while (// text start typing if it's not finished and we are on the right slide (horizontal or vertical)
-            !isDone && ((!done &&
+        while (
+            // text start typing if it's not finished and we are on the right slide (horizontal or vertical)
+            !isDone &&
+            !done &&
             cursorIndex === textIndex &&
-            ((currentSlide.v === pageVIndex && currentSlide.h === 1 && currentSlide.h === pageHIndex) || 
-            currentSlide.h == pageHIndex && currentSlide.h !== 1)
-            ))
+            ((currentSlide.v === pageVIndex &&
+                currentSlide.h === 1 &&
+                currentSlide.h === pageHIndex) ||
+                (currentSlide.h === pageHIndex && currentSlide.h !== 1))
         ) {
             const currentLetter = counter.next();
             letter = currentLetter.value;
@@ -76,29 +77,41 @@ export default function TextTyper(props) {
                     letter
                 );
             } else {
-                setDone(true)
+                setDone(true);
                 // when the text is done we pass the cursor to the next text
-                if(cursorIndex!== undefined){
+                if (cursorIndex !== undefined) {
                     setTimeout(() => {
                         setCursorIndex(cursorIndex + 1);
                     }, speed * i + delay);
-            }}
+                }
+            }
             i += 1;
         }
-    }
-     ,[currentSlide.v, currentSlide.h, textIndex, speed, delay, cursorIndex, pageVIndex, pageHIndex, ready, setCursorIndex, isDone, text]);
-    
-    
+    }, [
+        currentSlide.v,
+        currentSlide.h,
+        textIndex,
+        speed,
+        delay,
+        cursorIndex,
+        pageVIndex,
+        pageHIndex,
+        ready,
+        setCursorIndex,
+        isDone,
+        text
+    ]);
+
     return (
         <>
-            <span>{curText}</span>
+            <span>{curText}
             <span
                 className={`${
                     cursorIndex === textIndex ? "cursor" : "cursor--hidden"
-                    
                 } ${isDone && "cursor--done"} `}
             >
                 {cursor}
+            </span>
             </span>
         </>
     );

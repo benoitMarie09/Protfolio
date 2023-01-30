@@ -3,24 +3,23 @@ import { Outlet } from "react-router-dom";
 import "./VSlide.scss";
 import { SlideContext } from "../../index";
 
-
 /**
  * Component to creater vertical slide that we can move up and down
- * @param {*} props  
+ * @param {*} props
  * index => number
- * slidesNb => number 
+ * slidesNb => number
  * @returns a slide and define it's position (up, center, down)
  */
 export default function VSlide(props) {
     /* context state to track current slide (horizontal and vertical) */
     const { currentSlide, setCurrentSlide } = useContext(SlideContext);
-    const {index, slidesNb} = props
+    const { index, slidesNb } = props;
     // calcul the z-index
     const z = slidesNb - index;
 
     /**
      * handle slide up and down with mouse wheel
-     * @param {*} event 
+     * @param {*} event
      */
     function wheelSlide(event) {
         if (event.deltaY > 0) {

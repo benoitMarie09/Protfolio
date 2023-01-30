@@ -25,7 +25,7 @@
             .cube {
                 position: static;
                 transition: all 1s;
-                cursor: url(../../../public/images/cursors-pointer.png),pointer;
+                cursor: url(../../../public/images/cursors-pointer.png), pointer;
                 &--active {
                     transform: rotateY(180deg);
                 }

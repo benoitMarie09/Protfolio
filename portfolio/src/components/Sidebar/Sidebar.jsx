@@ -3,12 +3,16 @@ import { useEffect, useState, useContext } from "react";
 import { SlideContext } from "../../index";
 import "./Sidebar.scss";
 
+/**
+ *
+ * @returns A sidebar on the right of the screen link to next slide
+ */
 export function SidebarRight() {
+    /* context state to track current slide (horizontal and vertical) */
     const { currentSlide } = useContext(SlideContext);
-    const [nextPage, setNextPage] = useState({
-        name: "Projets",
-        url: "/works"
-    });
+    /* State to track information of next page */
+    const [nextPage, setNextPage] = useState({ name: "", url: "" });
+    /* Upadte next page informations state */
     useEffect(() => {
         switch (currentSlide.h) {
             case 0:
@@ -43,13 +47,16 @@ export function SidebarRight() {
         </Link>
     );
 }
-
+/**
+ *
+ * @returns A sidebar on the left of the screen link to previous slide
+ */
 export function SidebarLeft() {
+    /* context state to track current slide (horizontal and vertical) */
     const { currentSlide } = useContext(SlideContext);
-    const [previousPage, setPreviousPage] = useState({
-        name: "Profile",
-        url: "/about"
-    });
+    /* State to track information of previous page */
+    const [previousPage, setPreviousPage] = useState({ name: "", url: "" });
+    /* Upadte previous page informations state */
     useEffect(() => {
         console.log(currentSlide);
         switch (currentSlide.h) {

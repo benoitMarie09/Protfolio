@@ -3,19 +3,34 @@ import "./HSlide.scss";
 import { useLocation } from "react-router-dom";
 import { SlideContext } from "../../index";
 
+/**
+ *
+ * @param {*} props {
+ * inde => number  horizontail slide index}
+ * @returns
+ */
 function HSlide(props) {
+    /* context state to track current slide (horizontal and vertical) */
     const { currentSlide, setCurrentSlide } = useContext(SlideContext);
+    /* State to track css transitions */
     const [noTransition, setNoTransition] = useState(false);
     const { index } = props;
+    /* State to track router location */
     const location = useLocation();
 
     useEffect(() => {
+        /**
+         *  function to stop css trasition during when sliding from one side to the other side
+         */
         function hideTansition() {
             let timer;
             setNoTransition(true);
             clearTimeout(timer);
-            timer = setTimeout(() => setNoTransition(false), 1000);
+            timer = setTimeout(() => setNoTransition(false), 400);
         }
+        /**
+         * handle condition to stop transition
+         */
         switch (location.pathname) {
             case "/works":
                 // home --> work : notransition if about
@@ -53,7 +68,7 @@ function HSlide(props) {
                 setCurrentSlide({ ...currentSlide, h: 0 });
                 break;
         }
-    }, [location.pathname]);
+    });
 
     return (
         <div
