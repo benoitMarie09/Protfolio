@@ -58,7 +58,6 @@ export function SidebarLeft() {
     const [previousPage, setPreviousPage] = useState({ name: "", url: "" });
     /* Upadte previous page informations state */
     useEffect(() => {
-        console.log(currentSlide);
         switch (currentSlide.h) {
             case 0:
                 setPreviousPage({ name: "Profile", url: "/about" });

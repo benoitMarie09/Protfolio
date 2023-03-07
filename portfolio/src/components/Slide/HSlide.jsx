@@ -35,7 +35,6 @@ function HSlide(props) {
             case "/works":
                 // home --> work : notransition if about
                 if (currentSlide.h === 0 && index === 2) {
-                    console.log("first");
                     hideTansition();
                 }
                 // home --> work : notransition
