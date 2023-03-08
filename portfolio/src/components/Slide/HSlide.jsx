@@ -67,7 +67,7 @@ function HSlide(props) {
                 setCurrentSlide({ ...currentSlide, h: 0 });
                 break;
         }
-    });
+    },[location] );
 
     return (
         <div

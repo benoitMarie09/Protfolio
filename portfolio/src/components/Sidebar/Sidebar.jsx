@@ -27,7 +27,7 @@ export function SidebarRight() {
             default:
                 break;
         }
-    }, [currentSlide]);
+    }, [currentSlide.h]);
 
     return (
         <Link to={nextPage.url}>
@@ -56,7 +56,7 @@ export function SidebarLeft() {
     const { currentSlide } = useContext(SlideContext);
     /* State to track information of previous page */
     const [previousPage, setPreviousPage] = useState({ name: "", url: "" });
-    /* Upadte previous page informations state */
+    /* Update previous page informations state */
     useEffect(() => {
         switch (currentSlide.h) {
             case 0:
@@ -71,7 +71,7 @@ export function SidebarLeft() {
             default:
                 break;
         }
-    }, [currentSlide]);
+    }, [currentSlide.h]);
 
     return (
         <Link to={previousPage.url}>
