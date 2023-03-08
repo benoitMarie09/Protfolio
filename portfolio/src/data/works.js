@@ -43,6 +43,26 @@ const projects = {
         {
             key: 3,
             details: {
+                name: "Liste de naissance",
+                desc: "Liste de naissance créée pour mon premier enfant, les utilisateurs peuvent réserver (partiellement ou totalement) des cadeaux à partir d'une liste créée par les futurs parents.",
+                technos: ["Django", "crispyform", "Boostrap"],
+                roles: ["front-end", "back-end"],
+                year: 2023,
+                url: "https://benoitmarie.pythonanywhere.com",
+                git: "https://github.com/benoitMarie09/ListeNaissance"
+            },
+            images: [
+                "/images/listeN/img_1.png",
+                "/images/listeN/img_2.png",
+                "/images/listeN/img_3.png",
+                "/images/listeN/img_4.png",
+                "/images/listeN/img_5.png",
+                "/images/listeN/img_6.png"
+            ]
+        },
+        {
+            key: 4,
+            details: {
                 name: "ToneSide(en construction)",
                 desc: "Portfolio pour le l'artiste compositeur ToneSide.",
                 technos: ["React"],
