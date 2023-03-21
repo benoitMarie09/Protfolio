@@ -52,12 +52,12 @@ const projects = {
                 git: "https://github.com/benoitMarie09/ListeNaissance"
             },
             images: [
-                "/images/listeN/img_1.png",
-                "/images/listeN/img_2.png",
-                "/images/listeN/img_3.png",
-                "/images/listeN/img_4.png",
-                "/images/listeN/img_5.png",
-                "/images/listeN/img_6.png"
+                "/images/ListeN/img_1.png",
+                "/images/ListeN/img_2.png",
+                "/images/ListeN/img_3.png",
+                "/images/ListeN/img_4.png",
+                "/images/ListeN/img_5.png",
+                "/images/ListeN/img_6.png"
             ]
         },
         {
