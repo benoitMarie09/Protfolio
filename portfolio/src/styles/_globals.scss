@@ -12,7 +12,10 @@
     font-family: "Ubuntu Mono", monospace;
 }
 html {
-    height: strecth;
+    height: 90vh;
+    @include breakpoint(sm){
+        height: strecth;
+    }
 }
 ul {
     list-style: none;
