@@ -86,7 +86,7 @@ export default function About() {
                             text={
                                 "Passionné de mathématiques et d'informatique, j'ai développé mes compétences en programmation en utilisant Python, Javascript et C en développant des projets personnels tels qu'Arduino et Raspberry Pi, ainsi que des projets web en utilisant Django et React. Je suis enthousiaste à l'idée de poursuivre mon parcours en tant que développeur web en mettant en pratique mes compétences acquises et en continuant à apprendre."
                             }
-                            speed={70}
+                            speed={30}
                             cursor={"\u2588"}
                             textIndex={4}
                             pageVIndex={0}

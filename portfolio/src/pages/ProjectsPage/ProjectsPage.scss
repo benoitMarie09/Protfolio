@@ -20,7 +20,8 @@
         perspective: 170vw;
         perspective-origin: 170% -60%;
         @include breakpoint(sm){
-        bottom: 0;
+            top : auto;            
+            bottom: 0px;
         }
         .scene {
             position: relative;
