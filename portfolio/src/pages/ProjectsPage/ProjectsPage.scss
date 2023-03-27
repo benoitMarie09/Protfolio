@@ -13,12 +13,15 @@
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        bottom: 0;
         width: 100%;
         height: 100px;
+        top : 60px;
         z-index: 1000;
         perspective: 170vw;
         perspective-origin: 170% -60%;
+        @include breakpoint(sm){
+        bottom: 0;
+        }
         .scene {
             position: relative;
             transform-style: preserve-3d;

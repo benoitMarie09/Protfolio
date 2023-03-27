@@ -2,14 +2,18 @@
 @use "../../styles/mixins" as *;
 
 .project {
-    width: 85vw;
-    height: 80%;
-    margin: 70px 7.5vw;
+    width: 100vw;
+    height: 100%;
     display: grid;
     grid-template-rows: 70px 1fr 1fr;
     grid-template-columns: 100%;
     overflow: hidden;
     border: thick double $primary-color;
+    @include breakpoint(sm){
+        width: 85vw;
+        height: 80%;
+        margin: 70px 7.5vw;
+    }
     @include breakpoint(md) {
         grid-template-rows: 70px 1fr;
         grid-template-columns: min(400px, 50%) auto;

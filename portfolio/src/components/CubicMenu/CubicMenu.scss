@@ -7,13 +7,16 @@
     width: 100vw;
     height: 0;
     padding: 10px;
-    padding-right: max(calc(5% + 10px), 80px);
     padding-top: 30px;
+    padding-right: 35px;
     display: flex;
     justify-content: flex-end;
     perspective: 170vw;
     perspective-origin: 170% -60%;
     z-index: 200;
+    @include breakpoint(sm){
+    padding-right: max(calc(5% + 10px), 80px);
+    }
     &--menu {
         .cube--menu {
             transform: rotateY(180deg);
