@@ -44,10 +44,10 @@ export default function App(event) {
     };
 
     const handleTouchEnd = (event) => {
-        if(touchPos.distanceX < -150){
+        if(touchPos.distanceX < -100){
             nextPage()
         }
-        if(touchPos.distanceX > 150){
+        if(touchPos.distanceX > 100){
             previousPage()
         }
         setTouchPos({
