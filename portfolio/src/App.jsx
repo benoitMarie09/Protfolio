@@ -19,26 +19,42 @@ export default function App(event) {
 
     const [touchPos, setTouchPos] = useState({
         originX: null,
-        originY: null
+        originY: null,
+        distanceX:0,
+        distanceY:0
     });
 
     const handleTouchStart = (event) => {
         setTouchPos({
+            ...touchPos,
             originX: event.touches[0].clientX,
-            originY: event.touches[0].clientY
+            originY: event.touches[0].clientY,
+            distanceX:0,
+            distanceY:0
         });
     };
     const handleTouchMove = (event) => {
-        if (event.touches[0].clientX - touchPos.originX > 200) {
-        }
-        if (event.touches[0].clientX - touchPos.originX < -200) {
-            nextPage();
-        }
-        if (event.touches[0].clientX - touchPos.originY > 200) {
-        }
-        if (event.touches[0].clientX - touchPos.originY < -200) {
-        }
+        setTouchPos({
+            ...touchPos,
+            distanceX : event.touches[0].clientX - touchPos.originX,
+            distanceY : event.touches[0].clientY - touchPos.originY
+        });        
     };
+
+    const handleTouchEnd = (event) => {
+        if(touchPos.distanceX < -150){
+            nextPage()
+        }
+        if(touchPos.distanceX > 150){
+            previousPage()
+        }
+        setTouchPos({
+            originX: null,
+            originY: null,
+            distanceX:0,
+            distanceY:0
+        })
+    }
 
     const nextPage = () => {
         switch (currentSlide.h) {
@@ -50,6 +66,22 @@ export default function App(event) {
                 break;
             case 2:
                 navigate("/");
+                break;
+            default:
+                break;
+        }
+    };
+
+    const previousPage = () => {
+        switch (currentSlide.h) {
+            case 0:
+                navigate("/about");
+                break;
+            case 1:
+                navigate("/");
+                break;
+            case 2:
+                navigate("/works");
                 break;
             default:
                 break;
@@ -71,20 +103,49 @@ export default function App(event) {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     });
+
+    useEffect(()=>{
+        switch (currentSlide.h) {
+            case 0:
+                var previous = document.getElementById("about");
+                var current = document.getElementById("home");
+                var next = document.getElementById("projets");
+                break;
+            case 1:
+                var previous = document.getElementById("home");
+                var current = document.getElementById("projets");
+                var next = document.getElementById("about");
+                break;
+            case 2:
+                var previous = document.getElementById("projets");
+                var current = document.getElementById("about");
+                var next = document.getElementById("home");
+                break;
+            default:
+                break;
+        }
+        previous.style.transform = `translateX(-100%)`
+        current.style.transform = `translateX(${touchPos.distanceX}px)`
+        next.style.transform = `translateX(100%)`
+        },
+    [touchPos.distanceX, currentSlide.h]
+    )
+
     return (
         <main
             onTouchStart={(event) => handleTouchStart(event)}
             onTouchMove={(event) => handleTouchMove(event)}
+            onTouchEnd={(event)=>handleTouchEnd(event)}
         >
             <SidebarLeft />
             <SidebarRight />
-            <HSlide key={1} index={0}>
+            <HSlide key={1} index={0} id={"home"}>
                 <Home />
             </HSlide>
-            <HSlide key={2} index={1}>
+            <HSlide key={2} index={1} id={"projets"}>
                 <ProjectsPage />
             </HSlide>
-            <HSlide key={3} index={2}>
+            <HSlide key={3} index={2} id={"about"}>
                 <About />
             </HSlide>
             <Outlet />

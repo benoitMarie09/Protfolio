@@ -14,7 +14,7 @@ function HSlide(props) {
     const { currentSlide, setCurrentSlide } = useContext(SlideContext);
     /* State to track css transitions */
     const [noTransition, setNoTransition] = useState(false);
-    const { index } = props;
+    const { index, id } = props;
     /* State to track router location */
     const location = useLocation();
 
@@ -71,16 +71,13 @@ function HSlide(props) {
 
     return (
         <div
-            className={`Hslide 
-            ${
-                index === currentSlide.h
+            className={`Hslide ${index === currentSlide.h
                     ? ""
                     : currentSlide.h === (index + 1) % 3
                     ? "Hslide--left"
                     : "Hslide--rigth"
-            } 
-            ${noTransition ? "transition-stopper" : ""}
-                `}
+            } ${noTransition ? "transition-stopper" : ""}`}
+            id={id}
         >
             {props.children}
         </div>
