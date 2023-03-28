@@ -38,7 +38,9 @@ export default function App(event) {
         });
     };
     const handleTouchMove = (event) => {
-        event.preventDefault();
+        if (!event.target.hasClass("about__info")) {
+            event.preventDefault();
+        }
         current.current.classList.add("transition-stopper");
         setTouchPos({
             ...touchPos,

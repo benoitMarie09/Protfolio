@@ -18,15 +18,15 @@
         transition: 1000ms cubic-bezier(0, 0.83, 0.72, 1.05);
         transition-delay: 500ms;
     }
-    transition: 1000ms ease;
-    transition-delay: 500ms;
+    transition: 800ms ease-out;
+    transition-delay: 00ms;
 
     &--rigth {
         transform: translateX(100%);
         @include breakpoint(sm) {
             transition: 1300ms cubic-bezier(0.59, -0.01, 0.17, 1.14);
         }
-        transition: 1300ms ease;
+        transition: 900ms ease-out;
         .Sidebar {
             opacity: 0;
         }
@@ -36,7 +36,7 @@
         @include breakpoint(sm) {
             transition: 1300ms cubic-bezier(0.59, -0.01, 0.17, 1.14);
         }
-        transition: 1300ms ease;
+        transition: 900ms ease-out;
         .Sidebar {
             opacity: 0;
         }
