@@ -39,6 +39,7 @@ export default function App(event) {
     };
     const handleTouchMove = (event) => {
         event.preventDefault();
+        current.current.classList.add("transition-stopper");
         setTouchPos({
             ...touchPos,
             distanceX: event.touches[0].clientX - touchPos.originX,
@@ -47,14 +48,7 @@ export default function App(event) {
     };
 
     const handleTouchEnd = (event) => {
-        if (current) {
-            current.current.style.transitionDelay = "500ms";
-            current.current.style.transition = "all 1300ms";
-            previous.current.style.transitionDelay = "500ms";
-            previous.current.style.transition = "all 1300ms";
-            next.current.style.transitionDelay = "500ms";
-            next.current.style.transition = "all 1300ms";
-        }
+        current.current.classList.remove("transition-stopper");
         if (touchPos.distanceX < -50) {
             nextPage();
         }
@@ -161,16 +155,10 @@ export default function App(event) {
             default:
                 break;
         }
+        current.current.style.transform = `translateX(${touchPos.distanceX}px)`;
         next.current.style.transform = `translateX(100%)`;
         previous.current.style.transform = `translateX(-100%)`;
-        current.current.style.transform = `translateX(0)`;
     }, [touchPos.distanceX, currentSlide.h]);
-
-    useEffect(() => {
-        current.current.style.transitionDelay = "0s";
-        current.current.style.transition = "0s";
-        current.current.style.transform = `translateX(${touchPos.distanceX}px)`;
-    }, [touchPos.distanceX]);
 
     return (
         <main
