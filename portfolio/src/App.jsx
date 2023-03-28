@@ -116,8 +116,13 @@ export default function App(event) {
     }
     useEffect(() => {
         window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    });
+        document.getElementsByTagName("main")[0].addEventListener("touchmove",handleTouchMove,false);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+            document.getElementsByTagName("main")[0].removeEventListener("touchmove",handleTouchMove,false);
+        }
+        });
 
     /*useEffect(()=>{
         switch (currentSlide.h) {
@@ -149,7 +154,7 @@ export default function App(event) {
     return (
         <main
             onTouchStart={(event) => handleTouchStart(event)}
-            onTouchMove={(event) => handleTouchMove(event)}
+            //onTouchMove={(event) => handleTouchMove(event)}
             onTouchEnd={(event)=>handleTouchEnd(event)}
         >
             <SidebarLeft />
