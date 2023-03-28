@@ -5,6 +5,7 @@ import { SidebarRight, SidebarLeft } from "./components/Sidebar/Sidebar";
 import Home from "./pages/Home/Home";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import About from "./pages/About/About";
+import projects from "./data/works";
 import HSlide from "./components/Slide/HSlide";
 import "./App.scss";
 
@@ -13,7 +14,7 @@ import "./App.scss";
  */
 export default function App(event) {
     /* context state to track current slide (horizontal and vertical) */
-    const { currentSlide } = useContext(SlideContext);
+    const { currentSlide, setCurrentSlide } = useContext(SlideContext);
 
     const navigate = useNavigate();
 
@@ -49,6 +50,18 @@ export default function App(event) {
         }
         if(touchPos.distanceX > 70){
             previousPage()
+        }
+        if(currentSlide.h === 1){
+            console.log(currentSlide.v)
+            console.log(projects.getProjects().length)
+            if(touchPos.distanceY > 70 && currentSlide.v >= 1){
+                console.log(touchPos.distanceY)
+                setCurrentSlide({ ...currentSlide, v:currentSlide.v - 1 })
+            }
+            if(touchPos.distanceY < -70 && currentSlide.v < projects.getProjects().length-1){
+                console.log(touchPos.distanceY)
+                setCurrentSlide({ ...currentSlide, v:currentSlide.v + 1 })
+            }
         }
         setTouchPos({
             originX: null,
@@ -106,7 +119,7 @@ export default function App(event) {
         return () => window.removeEventListener("resize", handleResize);
     });
 
-    useEffect(()=>{
+    /*useEffect(()=>{
         switch (currentSlide.h) {
             case 0:
                 var previous = document.getElementById("about");
@@ -131,7 +144,7 @@ export default function App(event) {
         next.style.transform = `translateX(100%)`
         },
     [touchPos.distanceX, currentSlide.h]
-    )
+    )*/
 
     return (
         <main
