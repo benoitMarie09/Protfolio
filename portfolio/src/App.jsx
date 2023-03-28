@@ -21,55 +21,58 @@ export default function App(event) {
     const [touchPos, setTouchPos] = useState({
         originX: null,
         originY: null,
-        distanceX:0,
-        distanceY:0
+        distanceX: 0,
+        distanceY: 0
     });
 
     const handleTouchStart = (event) => {
-        event.preventDefault()
+        event.preventDefault();
         setTouchPos({
             ...touchPos,
             originX: event.touches[0].clientX,
             originY: event.touches[0].clientY,
-            distanceX:0,
-            distanceY:0
+            distanceX: 0,
+            distanceY: 0
         });
     };
     const handleTouchMove = (event) => {
-        event.preventDefault()
+        event.preventDefault();
         setTouchPos({
             ...touchPos,
-            distanceX : event.touches[0].clientX - touchPos.originX,
-            distanceY : event.touches[0].clientY - touchPos.originY
-        });        
+            distanceX: event.touches[0].clientX - touchPos.originX,
+            distanceY: event.touches[0].clientY - touchPos.originY
+        });
     };
 
     const handleTouchEnd = (event) => {
-        if(touchPos.distanceX < -70){
-            nextPage()
+        if (touchPos.distanceX < -50) {
+            nextPage();
         }
-        if(touchPos.distanceX > 70){
-            previousPage()
+        if (touchPos.distanceX > 50) {
+            previousPage();
         }
-        if(currentSlide.h === 1){
-            console.log(currentSlide.v)
-            console.log(projects.getProjects().length)
-            if(touchPos.distanceY > 70 && currentSlide.v >= 1){
-                console.log(touchPos.distanceY)
-                setCurrentSlide({ ...currentSlide, v:currentSlide.v - 1 })
+        if (currentSlide.h === 1) {
+            console.log(currentSlide.v);
+            console.log(projects.getProjects().length);
+            if (touchPos.distanceY > 50 && currentSlide.v >= 1) {
+                console.log(touchPos.distanceY);
+                setCurrentSlide({ ...currentSlide, v: currentSlide.v - 1 });
             }
-            if(touchPos.distanceY < -70 && currentSlide.v < projects.getProjects().length-1){
-                console.log(touchPos.distanceY)
-                setCurrentSlide({ ...currentSlide, v:currentSlide.v + 1 })
+            if (
+                touchPos.distanceY < -50 &&
+                currentSlide.v < projects.getProjects().length - 1
+            ) {
+                console.log(touchPos.distanceY);
+                setCurrentSlide({ ...currentSlide, v: currentSlide.v + 1 });
             }
         }
         setTouchPos({
             originX: null,
             originY: null,
-            distanceX:0,
-            distanceY:0
-        })
-    }
+            distanceX: 0,
+            distanceY: 0
+        });
+    };
 
     const nextPage = () => {
         switch (currentSlide.h) {
@@ -116,46 +119,51 @@ export default function App(event) {
     }
     useEffect(() => {
         window.addEventListener("resize", handleResize);
-        document.getElementsByTagName("main")[0].addEventListener("touchmove",handleTouchMove,false);
+        document
+            .getElementsByTagName("main")[0]
+            .addEventListener("touchmove", handleTouchMove, false);
 
         return () => {
             window.removeEventListener("resize", handleResize);
-            document.getElementsByTagName("main")[0].removeEventListener("touchmove",handleTouchMove,false);
-        }
-        });
+            document
+                .getElementsByTagName("main")[0]
+                .removeEventListener("touchmove", handleTouchMove, false);
+        };
+    });
 
-    /*useEffect(()=>{
+    useEffect(() => {
+        var previous;
+        var current;
+        var next;
         switch (currentSlide.h) {
             case 0:
-                var previous = document.getElementById("about");
-                var current = document.getElementById("home");
-                var next = document.getElementById("projets");
+                previous = document.getElementById("about");
+                current = document.getElementById("home");
+                next = document.getElementById("projets");
                 break;
             case 1:
-                var previous = document.getElementById("home");
-                var current = document.getElementById("projets");
-                var next = document.getElementById("about");
+                previous = document.getElementById("home");
+                current = document.getElementById("projets");
+                next = document.getElementById("about");
                 break;
             case 2:
-                var previous = document.getElementById("projets");
-                var current = document.getElementById("about");
-                var next = document.getElementById("home");
+                previous = document.getElementById("projets");
+                current = document.getElementById("about");
+                next = document.getElementById("home");
                 break;
             default:
                 break;
         }
-        previous.style.transform = `translateX(-100%)`
-        current.style.transform = `translateX(${touchPos.distanceX}px)`
-        next.style.transform = `translateX(100%)`
-        },
-    [touchPos.distanceX, currentSlide.h]
-    )*/
+        previous.style.transform = `translateX(-100%)`;
+        current.style.transform = `translateX(${touchPos.distanceX}px)`;
+        next.style.transform = `translateX(100%)`;
+    }, [touchPos.distanceX, currentSlide.h]);
 
     return (
         <main
             onTouchStart={(event) => handleTouchStart(event)}
             //onTouchMove={(event) => handleTouchMove(event)}
-            onTouchEnd={(event)=>handleTouchEnd(event)}
+            onTouchEnd={(event) => handleTouchEnd(event)}
         >
             <SidebarLeft />
             <SidebarRight />
