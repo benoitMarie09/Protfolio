@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import { SlideContext } from "./index";
 import { Outlet, useNavigate } from "react-router-dom";
 import { SidebarRight, SidebarLeft } from "./components/Sidebar/Sidebar";
@@ -17,7 +17,9 @@ export default function App(event) {
     const { currentSlide, setCurrentSlide } = useContext(SlideContext);
 
     const navigate = useNavigate();
-
+    const previous = useRef();
+    const current = useRef();
+    const next = useRef();
     const [touchPos, setTouchPos] = useState({
         originX: null,
         originY: null,
@@ -45,6 +47,14 @@ export default function App(event) {
     };
 
     const handleTouchEnd = (event) => {
+        if (current) {
+            current.current.style.transitionDelay = "500ms";
+            current.current.style.transition = "all 1300ms";
+            previous.current.style.transitionDelay = "500ms";
+            previous.current.style.transition = "all 1300ms";
+            next.current.style.transitionDelay = "500ms";
+            next.current.style.transition = "all 1300ms";
+        }
         if (touchPos.distanceX < -50) {
             nextPage();
         }
@@ -132,32 +142,35 @@ export default function App(event) {
     });
 
     useEffect(() => {
-        var previous;
-        var current;
-        var next;
         switch (currentSlide.h) {
             case 0:
-                previous = document.getElementById("about");
-                current = document.getElementById("home");
-                next = document.getElementById("projets");
+                previous.current = document.getElementById("about");
+                current.current = document.getElementById("home");
+                next.current = document.getElementById("projets");
                 break;
             case 1:
-                previous = document.getElementById("home");
-                current = document.getElementById("projets");
-                next = document.getElementById("about");
+                previous.current = document.getElementById("home");
+                current.current = document.getElementById("projets");
+                next.current = document.getElementById("about");
                 break;
             case 2:
-                previous = document.getElementById("projets");
-                current = document.getElementById("about");
-                next = document.getElementById("home");
+                previous.current = document.getElementById("projets");
+                current.current = document.getElementById("about");
+                next.current = document.getElementById("home");
                 break;
             default:
                 break;
         }
-        previous.style.transform = `translateX(-100%)`;
-        current.style.transform = `translateX(${touchPos.distanceX}px)`;
-        next.style.transform = `translateX(100%)`;
+        next.current.style.transform = `translateX(100%)`;
+        previous.current.style.transform = `translateX(-100%)`;
+        current.current.style.transform = `translateX(0)`;
     }, [touchPos.distanceX, currentSlide.h]);
+
+    useEffect(() => {
+        current.current.style.transitionDelay = "0s";
+        current.current.style.transition = "0s";
+        current.current.style.transform = `translateX(${touchPos.distanceX}px)`;
+    }, [touchPos.distanceX]);
 
     return (
         <main
