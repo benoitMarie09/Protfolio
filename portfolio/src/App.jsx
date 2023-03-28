@@ -25,6 +25,7 @@ export default function App(event) {
     });
 
     const handleTouchStart = (event) => {
+        event.preventDefault()
         setTouchPos({
             ...touchPos,
             originX: event.touches[0].clientX,
@@ -34,6 +35,7 @@ export default function App(event) {
         });
     };
     const handleTouchMove = (event) => {
+        event.preventDefault()
         setTouchPos({
             ...touchPos,
             distanceX : event.touches[0].clientX - touchPos.originX,
