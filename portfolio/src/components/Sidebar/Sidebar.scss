@@ -15,8 +15,13 @@
     z-index: 900;
     user-select: none;
     cursor: url(../../../public/images/cursors-pointer.png), pointer;
-    @include breakpoint(sm){
-        display : flex;
+    @include breakpoint_height( sm ){
+        @include breakpoint(sm){
+            display : flex;
+        }
+    }
+    @include breakpoint( lg ){
+        display: flex;
     }
     &__text {
         color: lighten($primary-color, 40%);

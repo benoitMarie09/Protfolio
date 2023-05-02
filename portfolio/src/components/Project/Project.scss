@@ -9,14 +9,20 @@
     grid-template-columns: 100%;
     overflow: hidden;
     border: thick double $primary-color;
-    @include breakpoint(sm){
-        width: 85vw;
-        height: 80%;
-        margin: 70px 7.5vw;
+    @include breakpoint_height( sm, max ){
+        grid-template-rows: 90px 1fr;
+        grid-template-columns: 50% 50%;
     }
-    @include breakpoint(md) {
-        grid-template-rows: 70px 1fr;
-        grid-template-columns: min(400px, 50%) auto;
+    @include breakpoint_height( sm ){
+        @include breakpoint(sm){
+            width: 85vw;
+            height: 80%;
+            margin: 70px 7.5vw;
+        }
+        @include breakpoint(md) {
+            grid-template-rows: 70px 1fr;
+            grid-template-columns: min(400px, 50%) auto;
+        }
     }
     &__title {
         height: 100%;
@@ -26,23 +32,41 @@
         justify-content: center;
         align-items: center;
         z-index: 100;
-        @include breakpoint(md) {
+        @include breakpoint_height( sm, max ){
             grid-column-start: 1;
             grid-column-end: 3;
+            justify-content: start;
+            align-items: start;
+            padding:10px 10px;
         }
+        @include breakpoint_height( sm ){
+            @include breakpoint(md) {
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+    }
         h2 {
             color: black;
         }
     }
     &__cube {
         height: 100%;
-        @include breakpoint(md) {
+        @include breakpoint_height( sm, max ){
             grid-column-start: 2;
             grid-column-end: 3;
             grid-row-start: 2;
             grid-row-end: 3;
             height: 100%;
         }
+        @include breakpoint_height( sm ){
+            @include breakpoint(md) {
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 2;
+                grid-row-end: 3;
+                height: 100%;
+            }
+    }
         .layout {
             width: 100%;
             height: calc(100% - 60px);
@@ -50,10 +74,12 @@
             .scene {
                 position: relative;
                 top: 20%;
-                @include breakpoint(md) {
-                    top: -10%;
-                    left: 5%;
-                }
+                @include breakpoint_height( sm ){
+                    @include breakpoint(md) {
+                        top: -10%;
+                        left: 5%;
+                    }
+            }
                 .cube {
                     user-select: none;
                     pointer-events: none;
@@ -63,14 +89,16 @@
     }
     &__info {
         height: 100%;
-        @include breakpoint(md) {
-            grid-column-start: 1;
-            grid-column-end: 2;
-            grid-row-start: 2;
-            grid-row-end: 3;
-            height: 100%;
-            overflow-y: hidden;
+        @include breakpoint_height( sm ){
+            @include breakpoint(md) {
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 2;
+                grid-row-end: 3;
+                height: 100%;
+                overflow-y: hidden;
         }
+    }
         &::-webkit-scrollbar {
             width: 11px;
         }
