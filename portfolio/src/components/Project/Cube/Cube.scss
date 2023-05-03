@@ -9,7 +9,13 @@
     perspective: 500vw;
     perspective-origin: -50% 0%;
     pointer-events: none;
-
+    @include breakpoint_height(sm) {
+        @include breakpoint(md) {
+            pointer-events: auto;
+            width: 50vw;
+            height: calc(100vh - 200px);
+        }
+}
     &--grab {
         &:hover {
             cursor: url(../../../../public/images/cursors-grab.png), grab;
