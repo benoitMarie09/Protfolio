@@ -4,9 +4,7 @@
 .Sidebar {
     position: absolute;
     height: 100%;
-    width: 7.5%;
-    min-width: 30px;
-    max-width: 70px;
+    width: 70px;
     background-color: fade-out($primary-color, 0.85);
     transition: opacity 1.4s ease, background-color 2s ease;
     display: none;
@@ -15,9 +13,6 @@
     z-index: 900;
     user-select: none;
     cursor: url(../../../public/images/cursors-pointer.png), pointer;
-    @include breakpoint(sm){
-        display : flex;
-    }
     &__text {
         color: lighten($primary-color, 40%);
         writing-mode: vertical-rl;
@@ -55,5 +50,18 @@
         .Sidebar__arrow {
             opacity: 0;
         }
+    }
+}
+
+@media screen and ( min-width: $sm ){
+    .Sidebar{
+        display : flex;
+    }
+}
+
+// when viewport width < $md and height < $sm ( mobile landscape mode )
+@media screen and ( max-width: $md ) and ( max-height: $sm ) {
+    .Sidebar{
+        display: none;
     }
 }

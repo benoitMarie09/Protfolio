@@ -224,7 +224,7 @@ export default function Cube(props) {
                     }`}
                     id={`scene${id}`}
                 >
-                    <div className="cube cube--flexible cube--green">
+                    <div className="cube cube--responsive cube--green">
                         <div className="cube__front">
                             <img
                                 className="cube__image"

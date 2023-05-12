@@ -3,9 +3,11 @@
 
 .Vslide {
     display: flex;
-    flex-direction: column;
+
+    justify-content: center;
     flex-wrap: wrap;
     height: 100%;
+    width: 100%;
     position: absolute;
     overflow: hidden;
     transform: translateY(0);

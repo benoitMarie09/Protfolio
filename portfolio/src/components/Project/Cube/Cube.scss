@@ -9,11 +9,6 @@
     perspective: 500vw;
     perspective-origin: -50% 0%;
     pointer-events: none;
-    @include breakpoint(md) {
-        pointer-events: auto;
-        width: 50vw;
-        height: calc(100vh - 200px);
-    }
     &--grab {
         &:hover {
             cursor: url(../../../../public/images/cursors-grab.png), grab;
@@ -39,9 +34,6 @@
     height: 60px;
     display: none;
     gap: 3px;
-    @include breakpoint(md) {
-        display: flex;
-    }
     button {
         width: 50%;
         height: 100%;
@@ -57,4 +49,21 @@
             background-color: fade-out($color: $primary-color, $amount: 0.2);
         }
     }
+}
+
+
+@media screen and ( min-width: $md ){
+    .layout {
+        pointer-events: auto;
+        width: 50vw;
+        height: calc(100vh - 200px);
+    }
+    .buttons {
+        display: flex;
+    }
+}
+
+// when viewport width < $md and height < $sm ( mobile landscape mode )
+@media screen and ( max-width: $md ) and ( max-height: $sm ) {
+
 }

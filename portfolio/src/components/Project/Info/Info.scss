@@ -8,22 +8,11 @@
     line-height: 0.9em;
     display: grid;
     grid-template-rows: 1fr 100px 60px;
-    @include breakpoint(md) {
-        font-size: 1.2em;
-        line-height: 1.2em;
-        border-right: thick double $primary-color;
-    }
     &__description {
         padding: 0 20px;
         display: flex;
         align-items: center;
         justify-content: center;
-        @include breakpoint(md) {
-            align-items: flex-start;
-            line-height: 1.5em;
-            font-size: 1.4em;
-            padding-top: 40%;
-        }
     }
     &__table {
         font-size: 0.8em;
@@ -65,5 +54,48 @@
                 pointer-events: none;
             }
         }
+    }
+}
+
+// When viewport width > md
+@media screen and ( min-width: $md ) {
+    // Increase font size and middle line.
+    .info{
+        font-size: 1em;
+        line-height: 1em;
+        border-right: thick double $primary-color;
+
+        // Replace description table and increse font size.
+        &__description {
+                line-height: 1.5em;
+                font-size: 1.4em;
+        }
+    }
+    
+}
+
+// When viewport width > lg
+@media screen and ( min-width: $xl ) {
+    // Increase font size and middle line.
+    .info{
+        font-size: 1.2em;
+        line-height: 1.2em;
+        border-right: thick double $primary-color;
+
+        // Replace description table and increse font size.
+        &__description {
+                align-items: flex-start;
+                line-height: 1.5em;
+                font-size: 1.4em;
+                padding-top: 40%;
+        }
+    }
+    
+}
+
+// when viewport width < $md and height < $sm ( mobile landscape mode )
+@media screen and ( max-width: $md ) and ( max-height: $sm ) {
+    .info{
+        border-right: thick double $primary-color;
     }
 }

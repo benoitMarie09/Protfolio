@@ -19,10 +19,7 @@
         z-index: 1000;
         perspective: 170vw;
         perspective-origin: 170% -60%;
-        @include breakpoint(sm){
-            top : auto;            
-            bottom: 0px;
-        }
+
         .scene {
             position: relative;
             transform-style: preserve-3d;
@@ -39,6 +36,26 @@
                     justify-content: center;
                 }
             }
+        }
+    }
+}
+
+// when viewport width > $sm
+@media screen and ( min-width: $sm ) {
+    .projects{
+        // place the navigation cubes at the bottom of the page
+        &__navigation{
+            top : auto;            
+            bottom: 0px;
+        }
+    }
+}
+
+// when viewport width < $md and height < $sm ( mobile landscape mode )
+@media screen and ( max-width: $md ) and ( max-height: $sm ) {
+    .projects{
+        &__navigation{
+            top : 30px;            
         }
     }
 }

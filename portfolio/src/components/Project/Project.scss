@@ -9,15 +9,7 @@
     grid-template-columns: 100%;
     overflow: hidden;
     border: thick double $primary-color;
-    @include breakpoint(sm){
-        width: 85vw;
-        height: 80%;
-        margin: 70px 7.5vw;
-    }
-    @include breakpoint(md) {
-        grid-template-rows: 70px 1fr;
-        grid-template-columns: min(400px, 50%) auto;
-    }
+
     &__title {
         height: 100%;
         background-color: fade-out($color: $primary-color, $amount: 0.5);
@@ -26,23 +18,13 @@
         justify-content: center;
         align-items: center;
         z-index: 100;
-        @include breakpoint(md) {
-            grid-column-start: 1;
-            grid-column-end: 3;
-        }
+
         h2 {
             color: black;
         }
     }
     &__cube {
         height: 100%;
-        @include breakpoint(md) {
-            grid-column-start: 2;
-            grid-column-end: 3;
-            grid-row-start: 2;
-            grid-row-end: 3;
-            height: 100%;
-        }
         .layout {
             width: 100%;
             height: calc(100% - 60px);
@@ -50,10 +32,6 @@
             .scene {
                 position: relative;
                 top: 20%;
-                @include breakpoint(md) {
-                    top: -10%;
-                    left: 5%;
-                }
                 .cube {
                     user-select: none;
                     pointer-events: none;
@@ -63,14 +41,6 @@
     }
     &__info {
         height: 100%;
-        @include breakpoint(md) {
-            grid-column-start: 1;
-            grid-column-end: 2;
-            grid-row-start: 2;
-            grid-row-end: 3;
-            height: 100%;
-            overflow-y: hidden;
-        }
         &::-webkit-scrollbar {
             width: 11px;
         }
@@ -86,3 +56,104 @@
         }
     }
 }
+
+// When viewport width > sm
+@media screen and (min-width: $sm) {
+    .project{
+        // shorten the size of the project card to include sidebars.
+        width: calc(100% - 140px);
+        height: calc(100% - 90px);        
+    }
+    
+}
+
+// When viewport width > md
+@media screen and (min-width: $md) {
+    .project{
+        // Switch to 2 columns with shoter header.
+        grid-template-rows: 70px 1fr;
+        grid-template-columns: min(400px, 50%) auto;
+        
+        // the header spread to 2 columns.
+        &__title{
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        // The cube goes on the right side column
+        &__cube {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            height: 100%;
+            // adjust cube position
+            .layout{
+                .scene{
+                    top: -10%;
+                    left: 5%;
+                }
+            }
+        }
+
+        // The info goes on the left side column
+        &__info {
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 2;
+                grid-row-end: 3;
+                height: 100%;
+                overflow-y: hidden;
+        } 
+    }
+}
+
+// When viewport width > sm
+@media screen and (min-width: $xl) {
+    .project{
+        // shorten the size of the project card to include sidebars.
+        width: calc(100% - 140px);
+        height: 90%;
+        margin: 0 0;
+        
+    }
+    
+}
+
+// when viewport width < $md and height < $sm ( mobile landscape mode )
+@media screen and ( max-width: $md ) and ( max-height: $sm ) and (orientation: landscape) {
+    .project{
+            // Switch to 2 columns.
+            grid-template-rows: 100px 1fr;
+            grid-template-columns: 50% 50%;
+            justify-content: start;
+            align-items: start;
+            width: 100vw;
+            height: 100%;
+            margin: 0 0;
+            
+        // the header spread to 2 columns.
+        &__title{
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        // The cube goes on the right side column
+        &__cube {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            height: 100%;
+            // adjust cube position
+            .layout{
+                .scene{
+                    top: -10%;
+                    left: 5%;
+                }
+            }
+        }
+    }
+}
+
+
