@@ -124,7 +124,7 @@
 @media screen and ( max-width: $md ) and ( max-height: $sm ) and (orientation: landscape) {
     .project{
             // Switch to 2 columns.
-            grid-template-rows: 100px 1fr;
+            grid-template-rows: 70px 1fr;
             grid-template-columns: 50% 50%;
             justify-content: start;
             align-items: start;
@@ -136,6 +136,8 @@
         &__title{
             grid-column-start: 1;
             grid-column-end: 3;
+            align-items: end;
+            padding-bottom: 5px;
         }
 
         // The cube goes on the right side column

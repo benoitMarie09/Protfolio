@@ -55,7 +55,10 @@
 @media screen and ( max-width: $md ) and ( max-height: $sm ) {
     .projects{
         &__navigation{
-            top : 30px;            
+            top : -20px; 
+            justify-content: flex-start;
+            gap:50px;
+            margin-left: 20px ;           
         }
     }
 }

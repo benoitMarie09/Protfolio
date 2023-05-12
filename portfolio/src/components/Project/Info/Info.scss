@@ -96,6 +96,14 @@
 // when viewport width < $md and height < $sm ( mobile landscape mode )
 @media screen and ( max-width: $md ) and ( max-height: $sm ) {
     .info{
-        border-right: thick double $primary-color;
+        border-right: thick double $primary-color;*
+    
+        &__table{
+            transform : translateY(60px)
+        }
+
+        &__links{
+            transform: translateX(calc(100% + 7px) );
+        }
     }
 }

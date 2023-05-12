@@ -3,15 +3,27 @@
         @include cube-setup($sm-cube-size);
         @include breakpoint(sm){
             @include cube-setup($md-cube-size);
+            @include breakpoint_height( $sm, max ){
+                @include cube-setup($sm-cube-size);
+            }
         }
         @include breakpoint(md){
             @include cube-setup($lg-cube-size);
+            @include breakpoint_height( $sm, max ){
+                @include cube-setup($sm-cube-size);
+            }
         }
         @include breakpoint(lg) {
             @include cube-setup($xl-cube-size);
+            @include breakpoint_height( $sm, max ){
+                @include cube-setup($sm-cube-size);
+            }
         }
         @include breakpoint(xl){
             @include cube-setup($xl-cube-size);
+            @include breakpoint_height( $sm, max ){
+                @include cube-setup($sm-cube-size);
+            }
         }
     }
     &--xs {
@@ -20,9 +32,12 @@
     &--xxs {
         @include cube-setup($xxs-cube-size);
     }
-    &--xxxs {
-        @include breakpoint( $sm, max ){
+    &--responsive-xxxs {
+        @include breakpoint_height( $sm, max ){
             @include cube-setup($xxxs-cube-size);
+            @include breakpoint( $md ){
+                @include cube-setup($xxs-cube-size);
+            }
         }
     }
     &__image {

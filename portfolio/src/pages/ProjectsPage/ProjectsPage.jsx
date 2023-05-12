@@ -36,7 +36,7 @@ export default function ProjectsPage() {
                 {projects.getProjects().map((projectsItems) => (
                     <div className="scene" key={projectsItems.key}>
                         <div
-                            className={`cube cube--xxs cube--xxxs 
+                            className={`cube cube--xxs cube--responsive-xxxs 
                             ${
                                 currentSlide.v === projectsItems.key - 1
                                     ? "cube--active"
