@@ -1,15 +1,29 @@
 .cube {
-    &--flexible {
-        @include cube-setup($medium-cube-size);
+    &--responsive {
+        @include cube-setup($sm-cube-size);
+        @include breakpoint(sm){
+            @include cube-setup($md-cube-size);
+        }
+        @include breakpoint(md){
+            @include cube-setup($lg-cube-size);
+        }
         @include breakpoint(lg) {
-            @include cube-setup($big-cube-size);
+            @include cube-setup($xl-cube-size);
+        }
+        @include breakpoint(xl){
+            @include cube-setup($xl-cube-size);
         }
     }
-    &--small {
-        @include cube-setup($small-cube-size);
+    &--xs {
+        @include cube-setup($xs-cube-size);
     }
-    &--very-small {
-        @include cube-setup($very-small-cube-size);
+    &--xxs {
+        @include cube-setup($xxs-cube-size);
+    }
+    &--xxxs {
+        @include breakpoint( $sm, max ){
+            @include cube-setup($xxxs-cube-size);
+        }
     }
     &__image {
         width: 100%;

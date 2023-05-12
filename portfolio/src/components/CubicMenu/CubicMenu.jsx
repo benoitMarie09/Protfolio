@@ -54,7 +54,7 @@ const CubicMenu = () => {
 
                 <div className="scene">
                     <div
-                        className={`cube--small cube--green nav__cube 
+                        className={`cube--xs cube--green nav__cube 
                          ${isMenuOpen ? "cube--menu" : ""}`}
                         onClick={() => setMenuOpen(!isMenuOpen)}
                     >
