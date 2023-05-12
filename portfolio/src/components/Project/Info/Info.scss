@@ -94,7 +94,7 @@
 }
 
 // when viewport width < $md and height < $sm ( mobile landscape mode )
-@media screen and ( max-width: $md ) and ( max-height: $sm ) {
+@media screen and ( max-width: $md ) and ( max-height: $sm ) and (orientation: landscape) {
     .info{
         width : 100vw;
         border-right: thick double $primary-color;
