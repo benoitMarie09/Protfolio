@@ -9,7 +9,6 @@
     grid-template-columns: 100%;
     overflow: hidden;
     border: thick double $primary-color;
-
     &__title {
         height: 100%;
         background-color: fade-out($color: $primary-color, $amount: 0.5);
@@ -18,7 +17,6 @@
         justify-content: center;
         align-items: center;
         z-index: 100;
-
         h2 {
             color: black;
         }

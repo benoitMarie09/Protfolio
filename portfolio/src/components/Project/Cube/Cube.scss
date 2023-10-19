@@ -13,6 +13,7 @@
         &:hover {
             cursor: url(../../../../public/images/cursors-grab.png), grab;
         }
+
         &--onMotion {
             &:hover {
                 cursor: url(../../../../public/images/cursors-grabbing.png),
@@ -20,9 +21,11 @@
             }
         }
     }
+
     .scene {
         transform-style: preserve-3d;
         animation: none;
+
         &--autoRotation {
             animation: rotate 30s infinite linear;
         }
@@ -42,9 +45,11 @@
         font-size: 1.2em;
         background-color: fade-out($color: $primary-color, $amount: 0.7);
         cursor: url(../../../../public/images/cursors-pointer.png), pointer;
+
         &:hover {
             background-color: fade-out($color: $primary-color, $amount: 0.2);
         }
+
         &.active {
             background-color: fade-out($color: $primary-color, $amount: 0.2);
         }

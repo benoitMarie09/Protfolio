@@ -3,6 +3,9 @@ import Project from "../../components/Project/Project";
 import projects from "../../data/works";
 import { SlideContext } from "../../index";
 import "./ProjectsPage.scss";
+import Diapo from "../../components/presentation/diapo/Diapo";
+import Text from "../../components/presentation/text/Text";
+import Svg from "../../components/presentation/svg/Svg";
 
 /**
  * Component to present a web site project
@@ -23,32 +26,63 @@ export default function ProjectsPage() {
 
     return (
         <section className="projects">
-            {projects.getProjects().map((projectsItems, index) => (
-                <Project
-                    key={projectsItems.key}
-                    projectItems={projectsItems}
-                    index={index}
-                    slidesNb={slidesNb}
-                />
-            ))}
+            {projects.getProjects().map((projectsItems, index) => {
+                switch(projectsItems.type){
+                    case "project":
+                        return (
+                            <Project
+                                key={index}
+                                projectItems={projectsItems}
+                                index={index}
+                                slidesNb={slidesNb}
+                            />
+                        )
+                    case "diapo":
+                        return (<Diapo
+                                    key={index}
+                                    projectItems={projectsItems}
+                                    index={index}
+                                    slidesNb={slidesNb}
+                        />)
+                    case "text":
+                        return (<Text
+                                    key={index}
+                                    projectItems={projectsItems}
+                                    index={index}
+                                    slidesNb={slidesNb}
+                                    pageVIndex={index}                                
+                        />)
+                    case "svg":
+                        return (<Svg
+                                    key={index}
+                                    projectItems={projectsItems}
+                                    index={index}
+                                    slidesNb={slidesNb}                            
+                        />)
+                    default:
+                        return (<></>)
+                }
+
+            }
+            )}
 
             <nav className="projects__navigation">
-                {projects.getProjects().map((projectsItems) => (
+                {projects.getProjects().map((projectsItems, index) => (
                     <div className="scene" key={projectsItems.key}>
                         <div
                             className={`cube cube--xxs cube--responsive-xxxs 
                             ${
-                                currentSlide.v === projectsItems.key - 1
-                                    ? "cube--active"
-                                    : "cube--inactive "
+                                currentSlide.v === index
+                                    ? "cube--active cube--small"
+                                    : "cube--inactive cube--very-small"
                             }`}
                             onClick={() => {
-                                cubeClick(projectsItems.key);
+                                cubeClick(index + 1);
                             }}
                         >
                             <div className="cube__front"></div>
                             <div className="cube__back">
-                                {projectsItems.key}
+                                {index + 1}
                             </div>
                             <div className="cube__top"></div>
                             <div className="cube__bottom"></div>
