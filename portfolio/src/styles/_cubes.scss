@@ -26,6 +26,9 @@
             }
         }
     }
+    &--sm {
+        @include cube-setup($sm-cube-size);
+    }
     &--xs {
         @include cube-setup($xs-cube-size);
     }

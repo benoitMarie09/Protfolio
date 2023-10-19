@@ -17,7 +17,7 @@ export default function Project(props) {
                     <h2>{projectItems.details.name}</h2>
                 </header>
                 <section className="project__cube">
-                    <Cube images={projectItems.images} id={projectItems.key} />
+                    <Cube images={projectItems.images} id={index} />
                 </section>
 
                 <section className="project__info">

@@ -68,13 +68,13 @@ export default function ProjectsPage() {
 
             <nav className="projects__navigation">
                 {projects.getProjects().map((projectsItems, index) => (
-                    <div className="scene" key={projectsItems.key}>
+                    <div className="scene" key={index}>
                         <div
-                            className={`cube cube--xxs cube--responsive-xxxs 
+                            className={`cube   
                             ${
                                 currentSlide.v === index
-                                    ? "cube--active cube--small"
-                                    : "cube--inactive cube--very-small"
+                                    ? "cube--active cube--xs"
+                                    : "cube--inactive cube--xxs cube--responsive-xxxs"
                             }`}
                             onClick={() => {
                                 cubeClick(index + 1);
