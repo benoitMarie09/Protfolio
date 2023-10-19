@@ -31,6 +31,9 @@
     }
     &--active {
         & > * {
+            font-size: 25px;
+            font-weight: 800;
+            color: lighten($primary-color, 20%);
             border: 2px;
             box-shadow: 0 0 10px $primary-color inset,
                 0 0 15px lighten($primary-color, 20%);

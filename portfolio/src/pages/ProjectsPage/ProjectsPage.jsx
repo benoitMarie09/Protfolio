@@ -31,7 +31,7 @@ export default function ProjectsPage() {
                     case "project":
                         return (
                             <Project
-                                key={projectsItems.key}
+                                key={index}
                                 projectItems={projectsItems}
                                 index={index}
                                 slidesNb={slidesNb}
@@ -39,14 +39,14 @@ export default function ProjectsPage() {
                         )
                     case "diapo":
                         return (<Diapo
-                                    key={projectsItems.key}
+                                    key={index}
                                     projectItems={projectsItems}
                                     index={index}
                                     slidesNb={slidesNb}
                         />)
                     case "text":
                         return (<Text
-                                    key={projectsItems.key}
+                                    key={index}
                                     projectItems={projectsItems}
                                     index={index}
                                     slidesNb={slidesNb}
@@ -54,7 +54,7 @@ export default function ProjectsPage() {
                         />)
                     case "svg":
                         return (<Svg
-                                    key={projectsItems.key}
+                                    key={index}
                                     projectItems={projectsItems}
                                     index={index}
                                     slidesNb={slidesNb}                            
@@ -67,22 +67,22 @@ export default function ProjectsPage() {
             )}
 
             <nav className="projects__navigation">
-                {projects.getProjects().map((projectsItems) => (
+                {projects.getProjects().map((projectsItems, index) => (
                     <div className="scene" key={projectsItems.key}>
                         <div
-                            className={`cube cube--very-small 
+                            className={`cube  
                             ${
-                                currentSlide.v === projectsItems.key - 1
-                                    ? "cube--active"
-                                    : "cube--inactive "
+                                currentSlide.v === index
+                                    ? "cube--active cube--small"
+                                    : "cube--inactive cube--very-small"
                             }`}
                             onClick={() => {
-                                cubeClick(projectsItems.key);
+                                cubeClick(index + 1);
                             }}
                         >
                             <div className="cube__front"></div>
                             <div className="cube__back">
-                                {projectsItems.key}
+                                {index + 1}
                             </div>
                             <div className="cube__top"></div>
                             <div className="cube__bottom"></div>
