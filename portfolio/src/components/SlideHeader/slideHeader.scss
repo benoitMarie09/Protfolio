@@ -1,0 +1,40 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.slideHeader {
+    height: 100%;
+    position: relative;
+    background-color: fade-out($color: $primary-color, $amount: 0.5);
+    border-bottom: thick double $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    @include breakpoint_height( sm, max ){
+        grid-column-start: 1;
+        grid-column-end: 3;
+        justify-content: start;
+        align-items: start;
+        padding:10px 10px;
+    }
+    @include breakpoint_height( sm ){
+        @include breakpoint(md) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+    }
+    h2 {
+        color: black;
+    }
+    &__icon {
+        height: 30px;
+        width: 30px;
+        fill: $primary-color;
+        cursor: url(../../../public/images/cursors-pointer.png), pointer;
+        position: absolute;
+        right: 20px;
+        &:hover {
+            fill: $complementary-color;
+        }
+    }
+}
