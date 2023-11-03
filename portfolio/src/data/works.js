@@ -49,13 +49,8 @@ const projects = {
         },
         {
             type: "diapo",
-            title: "Use case 1",
+            title: "Use case",
             image: "/images/diapos/usecase1.png"
-        },
-        {
-            type: "diapo",
-            title: "Use case 2",
-            image: "/images/diapos/usecase2.png"
         },
         {
             type: "diapo",
